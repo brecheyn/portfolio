@@ -1,0 +1,52 @@
+<!-- src/app/components/hero/hero.component.html -->
+
+<section class="hero-section" *ngIf="personalInfo">
+  <div class="hero-background">
+    <div class="animated-bg"></div>
+  </div>
+  
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="greeting">👋 Bonjour, je suis</div>
+        <h1 class="hero-name">{{ personalInfo.name }}</h1>
+        <h2 class="hero-title">{{ personalInfo.title }}</h2>
+        <p class="hero-bio">{{ personalInfo.bio }}</p>
+        
+        <div class="hero-actions">
+          <button class="btn-primary" (click)="scrollToSection('projects')">
+            <i class="fas fa-briefcase"></i> Voir mes projets
+          </button>
+          <button class="btn-secondary" (click)="scrollToSection('contact')">
+            <i class="fas fa-envelope"></i> Me contacter
+          </button>
+          <button class="btn-outline" (click)="downloadCV()" *ngIf="personalInfo.cv">
+            <i class="fas fa-download"></i> Télécharger CV
+          </button>
+        </div>
+        
+        <div class="hero-socials">
+          <a 
+            *ngFor="let social of personalInfo.socials" 
+            [href]="social.url" 
+            target="_blank"
+            class="social-link"
+            [title]="social.platform">
+            <i [class]="social.icon"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <img [src]="personalInfo.photo" [alt]="personalInfo.name">
+          <div class="image-decoration"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator" (click)="scrollToSection('about')">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+</section>

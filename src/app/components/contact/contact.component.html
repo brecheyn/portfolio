@@ -1,0 +1,135 @@
+<!-- src/app/components/contact/contact.component.html -->
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contactez-Moi</h2>
+    <p class="section-subtitle">Travaillons ensemble sur votre prochain projet</p>
+
+    <div class="contact-content" *ngIf="personalInfo">
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email</h3>
+          <p>{{ personalInfo.email }}</p>
+          <button class="btn-contact" (click)="sendEmail()">
+            Envoyer un email
+          </button>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>Téléphone</h3>
+          <p>{{ personalInfo.phone || 'Non disponible' }}</p>
+          <a 
+            *ngIf="personalInfo.phone" 
+            [href]="'tel:' + personalInfo.phone" 
+            class="btn-contact">
+            Appeler
+          </a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Localisation</h3>
+          <p>{{ personalInfo.location }}</p>
+        </div>
+
+        <div class="social-links">
+          <h3>Suivez-moi</h3>
+          <div class="social-icons">
+            <a 
+              *ngFor="let social of personalInfo.socials"
+              [href]="social.url"
+              target="_blank"
+              class="social-icon"
+              [title]="social.platform">
+              <i [class]="social.icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <h3>Envoyez-moi un message</h3>
+          
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name"
+              [(ngModel)]="formData.name"
+              placeholder="Votre nom"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              [(ngModel)]="formData.email"
+              placeholder="votre.email@exemple.com"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject"
+              [(ngModel)]="formData.subject"
+              placeholder="Sujet du message"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea 
+              id="message" 
+              name="message"
+              [(ngModel)]="formData.message"
+              rows="6"
+              placeholder="Votre message..."
+              required></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            class="btn-submit"
+            [disabled]="!isFormValid() || isSubmitting"
+            [class.loading]="isSubmitting">
+            <span *ngIf="!isSubmitting && !submitSuccess">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </span>
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i> Envoi en cours...
+            </span>
+            <span *ngIf="submitSuccess">
+              <i class="fas fa-check-circle"></i> Message envoyé !
+            </span>
+          </button>
+
+          <div class="success-message" *ngIf="submitSuccess">
+            <i class="fas fa-check-circle"></i>
+            Merci ! Votre message a été envoyé avec succès. Je vous répondrai bientôt.
+          </div>
+
+          <div class="error-message" *ngIf="submitError">
+            <i class="fas fa-exclamation-circle"></i>
+            Une erreur est survenue. Veuillez réessayer.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

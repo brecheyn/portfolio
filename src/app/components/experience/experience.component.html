@@ -1,0 +1,74 @@
+<!-- src/app/components/experience/experience.component.html -->
+
+<section class="experience-section" id="experience">
+  <div class="container">
+    <h2 class="section-title">Mon Parcours</h2>
+    <p class="section-subtitle">Expériences professionnelles et formations</p>
+
+    <div class="timeline">
+      <div 
+        *ngFor="let exp of experiences; let i = index" 
+        class="timeline-item"
+        [class.timeline-item-left]="i % 2 === 0"
+        [class.timeline-item-right]="i % 2 !== 0">
+        
+        <div class="timeline-marker">
+          <div class="marker-dot">
+            <i class="fas fa-briefcase"></i>
+          </div>
+        </div>
+
+        <div class="timeline-content">
+          <div class="experience-card">
+            <div class="card-header">
+              <div class="header-content">
+                <span class="company-badge" *ngIf="exp.current">
+                  <i class="fas fa-circle pulse"></i> En cours
+                </span>
+                <h3 class="position">{{ exp.position }}</h3>
+                <h4 class="company">
+                  <i class="fas fa-building"></i> {{ exp.company }}
+                </h4>
+              </div>
+              <div class="logo-placeholder" *ngIf="exp.logo">
+                <img [src]="exp.logo" [alt]="exp.company">
+              </div>
+            </div>
+
+            <div class="card-meta">
+              <span class="date">
+                <i class="fas fa-calendar-alt"></i>
+                {{ formatDate(exp.startDate) }} - 
+                {{ exp.current ? 'Présent' : formatDate(exp.endDate!) }}
+              </span>
+              <span class="duration">
+                <i class="fas fa-clock"></i>
+                {{ getDuration(exp.startDate, exp.endDate) }}
+              </span>
+            </div>
+
+            <p class="description">{{ exp.description }}</p>
+
+            <div class="achievements" *ngIf="exp.achievements && exp.achievements.length > 0">
+              <h5>Réalisations clés :</h5>
+              <ul>
+                <li *ngFor="let achievement of exp.achievements">
+                  <i class="fas fa-check-circle"></i>
+                  {{ achievement }}
+                </li>
+              </ul>
+            </div>
+
+            <div class="technologies" *ngIf="exp.technologies && exp.technologies.length > 0">
+              <span 
+                *ngFor="let tech of exp.technologies" 
+                class="tech-tag">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
