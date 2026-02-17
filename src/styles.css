@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+footer {
+  /* Votre dégradé */
+  background: linear-gradient(135deg, #8dc1ec 0%, #8dc1ec 100%);
+  
+  /* Espacement et alignement */
+  padding: 40px 20px;
+  text-align: center;
+  
+  /* Typographie */
+  color: white; /* Blanc Perle pour la douceur */
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  
+  /* Optionnel : une fine ligne de séparation élégante */
+  border-top: #8dc1ec;
+  
+  /* Ombre interne pour donner de la profondeur */
+  box-shadow: inset 0 10px 15px -10px rgba(0,0,0,0.3);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  opacity: 0.9; /* Un peu de transparence pour un look plus "design" */
+}

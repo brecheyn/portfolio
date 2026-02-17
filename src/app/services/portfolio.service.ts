@@ -11,13 +11,13 @@ export class PortfolioService {
 
 private personalInfo: PersonalInfo = {
   name: 'NADINGA Yienouyaba Phares',
-  title: 'Développeur Full Stack • @brecheyn', // Ou juste 'Développeur Full Stack'
+  title: 'Développeur Full Stack • ByN', // Ou juste 'Développeur Full Stack'
   bio: 'Passionné par le développement web et mobile, je crée des solutions innovantes et performantes. Connu sous le pseudo @brecheyn.',
-  email: 'yienouyaban.com', // Ton vrai email
+  email: 'yienouyaban@gmail.com', 
   phone: '+226 54441150',
   location: 'Ouagadougou, Burkina Faso',
-  photo: 'assets/images/image.png',
-  cv: 'assets/cv/mon-cv.pdf',
+  photo: 'assets/images/profile.png',
+  cv: 'assets/cv/cvNadinga.pdf',
   socials: [
     { platform: SocialPlatform.GITHUB, url: 'https://github.com/brecheyn', icon: 'fab fa-github' },
     { platform: SocialPlatform.LINKEDIN, url: 'https://linkedin.com/in/', icon: 'fab fa-linkedin' },
@@ -93,17 +93,16 @@ private personalInfo: PersonalInfo = {
   private experiences: Experience[] = [
     {
       id: '1',
-      company: 'Nom de l\'entreprise',
-      position: 'Développeur Full Stack',
-      startDate: new Date('2023-01-15'),
+      company: 'Inviis',
+      position: 'Stage en developpement mobile et web',
+      startDate: new Date('2025-08-4'),
       current: true,
-      description: 'Développement d\'applications web et mobiles pour des clients variés',
+      description: 'Développement d\'applications, site web et mobiles',
       achievements: [
-        'Développement de 5+ applications web',
+        'Développement de 1 applications web et 1 mobiles',
         'Amélioration des performances de 40%',
-        'Formation de 3 juniors développeurs'
       ],
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'Docker']
+      technologies: ['vite+ vue.js', 'Node.js', 'MongoDB', 'Docker']
     },
     {
       id: '2',
@@ -123,15 +122,40 @@ private personalInfo: PersonalInfo = {
   ];
 
   private skills: Skill[] = [
-    { name: 'Angular', category: SkillCategory.FRONTEND, level: 85 },
-    { name: 'TypeScript', category: SkillCategory.FRONTEND, level: 80 },
-    { name: 'HTML/CSS', category: SkillCategory.FRONTEND, level: 90 },
-    { name: 'Node.js', category: SkillCategory.BACKEND, level: 75 },
-    { name: 'Express', category: SkillCategory.BACKEND, level: 70 },
-    { name: 'MongoDB', category: SkillCategory.DATABASE, level: 65 },
-    { name: 'Git', category: SkillCategory.TOOLS, level: 80 },
-    { name: 'Docker', category: SkillCategory.TOOLS, level: 60 }
-  ];
+  // Langages de programmation
+  { name: 'JavaScript', category: SkillCategory.FRONTEND, level: 80 },
+  { name: 'TypeScript', category: SkillCategory.FRONTEND, level: 80 },
+  { name: 'Python', category: SkillCategory.BACKEND, level: 80 },
+  { name: 'PHP', category: SkillCategory.BACKEND, level: 80 },
+  { name: 'Java', category: SkillCategory.BACKEND, level: 80 },
+  { name: 'HTML/CSS', category: SkillCategory.FRONTEND, level: 90 },
+  
+  // Frameworks Frontend
+  { name: 'Angular', category: SkillCategory.FRONTEND, level: 85 },
+  { name: 'React', category: SkillCategory.FRONTEND, level: 80 },
+  { name: 'Vue + Vite', category: SkillCategory.FRONTEND, level: 80 },
+  { name: 'Bootstrap', category: SkillCategory.FRONTEND, level: 80 },
+  
+  // Frameworks Backend
+  { name: 'Node.js', category: SkillCategory.BACKEND, level: 75 },
+  { name: 'Express', category: SkillCategory.BACKEND, level: 70 },
+  { name: 'Django', category: SkillCategory.BACKEND, level: 80 },
+  { name: 'Flask', category: SkillCategory.BACKEND, level: 80 },
+  { name: 'Laravel', category: SkillCategory.BACKEND, level: 80 },
+  
+  // Bases de données
+  { name: 'MongoDB', category: SkillCategory.DATABASE, level: 65 },
+  { name: 'MySQL', category: SkillCategory.DATABASE, level: 70 }, // Si tu l'utilises
+  
+  // Outils et DevOps
+  { name: 'Git', category: SkillCategory.TOOLS, level: 80 },
+  { name: 'Docker', category: SkillCategory.TOOLS, level: 60 },
+  { name: 'Metasploit', category: SkillCategory.TOOLS, level: 80 },
+  
+  // Design
+  { name: 'Figma', category: SkillCategory.TOOLS, level: 80 },
+  { name: 'Canva', category: SkillCategory.TOOLS, level: 80 },
+];
 
   constructor() { }
 

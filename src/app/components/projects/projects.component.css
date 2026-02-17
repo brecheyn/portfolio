@@ -2,7 +2,7 @@
 
 .projects-section {
   padding: 80px 20px;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #2e412e 0%, #8dc1ec 100%);
 }
 
 .container {
@@ -15,12 +15,12 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: white;
 }
 
 .section-subtitle {
   text-align: center;
-  color: #7f8c8d;
+  color: white;
   margin-bottom: 40px;
 }
 
@@ -41,18 +41,18 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 500;
-  color: #555;
+  color: #0a0a0a;
 }
 
 .filter-btn:hover {
-  border-color: #3498db;
-  color: #3498db;
+  border-color: #FF7F50;
+  color: #FF7F50;
 }
 
 .filter-btn.active {
-  background: #3498db;
+  background: #FF7F50;
   color: white;
-  border-color: #3498db;
+  border-color: #FF7F50;
 }
 
 /* Grille de projets */
@@ -67,7 +67,9 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .project-card:hover {
@@ -98,7 +100,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: #ff7f50;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +114,7 @@
 
 .btn-view {
   padding: 12px 30px;
-  background: #3498db;
+  background: #FF7F50;
   color: white;
   border: none;
   border-radius: 25px;
@@ -122,7 +124,7 @@
 }
 
 .btn-view:hover {
-  background: #2980b9;
+  background: #e07040;
 }
 
 .project-content {
@@ -184,18 +186,18 @@
 }
 
 .link-btn:hover {
-  border-color: #3498db;
-  color: #3498db;
+  border-color: #FF7F50;
+  color: #FF7F50;
 }
 
 .link-btn.primary {
-  background: #3498db;
+  background: #FF7F50;
   color: white;
-  border-color: #3498db;
+  border-color: #FF7F50;
 }
 
 .link-btn.primary:hover {
-  background: #2980b9;
+  background: #e07040;
 }
 
 /* Modal */
@@ -367,19 +369,19 @@
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .modal-body {
     padding: 20px;
   }
-  
+
   .modal-title {
     font-size: 1.5rem;
   }
-  
+
   .project-demo iframe {
     height: 250px;
   }
-  
+
   .modal-actions {
     flex-direction: column;
   }

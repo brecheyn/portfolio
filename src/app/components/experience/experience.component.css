@@ -38,7 +38,7 @@
   bottom: 0;
   left: 50%;
   width: 3px;
-  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  background:#0a0a0a;
   transform: translateX(-50%);
 }
 
@@ -74,7 +74,7 @@
 .marker-dot {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background:#FF7F50;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -156,7 +156,7 @@
 .company {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #667eea;
+  color: #FF7F50;
   margin: 5px 0;
   display: flex;
   align-items: center;
@@ -259,7 +259,7 @@
 .tech-tag {
   padding: 6px 15px;
   background: #e3f2fd;
-  color: #1976d2;
+  color: #FF7F50;
   border-radius: 15px;
   font-size: 0.85rem;
   font-weight: 500;
