@@ -1,5 +1,4 @@
 <!-- src/app/components/hero/hero.component.html -->
-
 <section class="hero-section" *ngIf="personalInfo">
   <div class="hero-background">
     <div class="animated-bg"></div>
@@ -8,7 +7,7 @@
   <div class="hero-container">
     <div class="hero-content">
       <div class="hero-text">
-        <div class="greeting"> Bonjour, je suis</div>
+        <div class="greeting">Bonjour, je suis</div>
         <h1 class="hero-name">{{ personalInfo.name }}</h1>
         <h2 class="hero-title">{{ personalInfo.title }}</h2>
         <p class="hero-bio">{{ personalInfo.bio }}</p>
@@ -35,12 +34,11 @@
             <i [class]="social.icon"></i>
           </a>
         </div>
-      </div>
+      </div><!-- ✅ Fermeture de .hero-text -->
       
-
-    
-    <div class="scroll-indicator" (click)="scrollToSection('about')">
-      <i class="fas fa-chevron-down"></i>
-    </div>
-  </div>
+      <div class="scroll-indicator" (click)="scrollToSection('about')">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div><!-- ✅ Fermeture de .hero-content -->
+  </div><!-- ✅ Fermeture de .hero-container -->
 </section>
