@@ -24,14 +24,6 @@
           </button>
         </div>
         
-      <div class="hero-image">
-        <div class="image-wrapper">
-          <img [src]="personalInfo.photo" [alt]="personalInfo.name">
-          <div class="image-decoration">
-          </div>
-        </div>
-      </div>
-        
         <div class="hero-socials">
           <a 
             *ngFor="let social of personalInfo.socials" 
@@ -43,6 +35,14 @@
           </a>
         </div>
       </div><!-- ✅ Fermeture de .hero-text -->
+
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <img [src]="personalInfo.photo" [alt]="personalInfo.name">
+          <div class="image-decoration">
+          </div>
+        </div>
+      </div>
       
       <div class="scroll-indicator" (click)="scrollToSection('about')">
         <i class="fas fa-chevron-down"></i>
