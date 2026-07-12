@@ -14,7 +14,7 @@
   margin-bottom: 16px;
   color: var(--primary);
   font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -31,42 +31,40 @@
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 80px;
 }
 
+/* Profil Card */
 .info-card {
   background: var(--paper);
-  padding: 40px;
-  border-radius: 12px;
+  padding: 50px 40px;
+  border-radius: 20px;
   border: 1px solid var(--line);
   text-align: center;
 }
 
 .info-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .info-header i {
   color: var(--accent);
-  font-size: 2.5rem;
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
 .info-header h3 {
   color: var(--primary);
   font-family: 'Archivo Black', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
 }
 
 .info-text {
-  max-width: 700px;
-  margin: 0 auto 30px;
+  max-width: 750px;
+  margin: 0 auto 40px;
   color: var(--ink);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.8;
 }
 
@@ -74,18 +72,18 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   padding-top: 30px;
-  border-top: 1px solid var(--line);
+  border-top: 1px dashed var(--line);
 }
 
 .detail-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: var(--primary);
   font-family: 'Space Mono', monospace;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .detail-item i {
@@ -96,80 +94,73 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .stat-card {
   padding: 30px 20px;
   background: var(--white);
+  border-radius: 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
 }
 
 .stat-card h4 {
-  margin: 10px 0 5px;
   color: var(--primary);
   font-family: 'Archivo Black', sans-serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  margin-bottom: 5px;
 }
 
 .stat-card p {
   color: var(--muted);
   font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
 }
 
-/* Skills section - centered and clean */
+/* Skills Section - Centered & Clean */
 .skills-wrapper {
-  width: 100%;
+  text-align: center;
 }
 
 .skills-header {
-  text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .skills-header span {
-  display: block;
-  margin-bottom: 12px;
   color: var(--accent);
   font-family: 'Space Mono', monospace;
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .skills-header h3 {
   color: var(--primary);
   font-family: 'Archivo Black', sans-serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   text-transform: uppercase;
 }
 
 .skills-controls {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .skills-controls button {
   width: 50px;
   height: 50px;
-  border: 1px solid var(--line);
   border-radius: 50%;
+  border: 1px solid var(--line);
   background: var(--white);
   color: var(--primary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .skills-controls button:hover {
@@ -180,99 +171,94 @@
 
 .skills-carousel {
   overflow: hidden;
+  max-width: 900px;
   margin: 0 auto;
-  max-width: 800px;
 }
 
 .skills-track {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .skill-category {
   flex: 0 0 100%;
   min-width: 100%;
-  padding: 0 10px;
-  text-align: center;
+  padding: 0 20px;
 }
 
 .category-title {
-  margin-bottom: 40px;
   color: var(--primary);
   font-family: 'Archivo Black', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.category-count {
+  color: var(--accent);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  margin-bottom: 50px;
 }
 
 .skills-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  text-align: left;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-content: center;
 }
 
 .skill-item {
-  padding: 0;
+  text-align: left;
 }
 
 .skill-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
-  color: var(--ink);
   font-family: 'Space Mono', monospace;
-  font-size: 0.9rem;
   font-weight: 600;
+  color: var(--ink);
 }
 
 .skill-bar {
-  height: 6px;
+  height: 8px;
   background: var(--line);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .skill-progress {
   height: 100%;
   background: var(--primary);
-  border-radius: 3px;
-  transition: width 1s ease-out;
+  border-radius: 4px;
 }
 
 .skills-dots {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 40px;
+  gap: 15px;
+  margin-top: 50px;
 }
 
 .skills-dots button {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  border: none;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
+  border: none;
   background: var(--line);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .skills-dots button.active {
-  width: 30px;
+  width: 40px;
   border-radius: 10px;
   background: var(--primary);
 }
 
 @media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-list {
-    grid-template-columns: 1fr;
-  }
-
-  .info-card {
-    padding: 25px;
-  }
+  .stats-grid { grid-template-columns: 1fr; }
+  .info-details { flex-direction: column; align-items: center; gap: 15px; }
+  .category-title { font-size: 2rem; }
 }

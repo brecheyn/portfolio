@@ -1,88 +1,78 @@
-<!-- src/app/components/about/about.component.html -->
 <section class="about-section" id="about">
   <div class="container">
-    <h2 class="section-title">Expertise et méthode</h2>
-    <p class="section-subtitle">Une approche orientée produit, performance et résultats concrets.</p>
+    <h2 class="section-title">Expertise & Stack</h2>
+    <p class="section-subtitle">Une approche moderne axée sur la performance et la qualité du code.</p>
 
     <div class="about-content" *ngIf="personalInfo">
-      <div class="about-info">
-        <div class="info-card">
-          <div class="info-header">
-            <i class="fas fa-user-circle"></i>
-            <h3>Profil</h3>
-          </div>
-          <p class="info-text">{{ personalInfo.bio }}</p>
+      <!-- Profil Card -->
+      <div class="info-card">
+        <div class="info-header">
+          <i class="fas fa-rocket"></i>
+          <h3>Mon Profil</h3>
+        </div>
+        <p class="info-text">{{ personalInfo.bio }}</p>
 
-          <div class="info-details">
-            <div class="detail-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>{{ personalInfo.location }}</span>
-            </div>
-            <div class="detail-item">
-              <i class="fas fa-envelope"></i>
-              <span>{{ personalInfo.email }}</span>
-            </div>
-            <div class="detail-item" *ngIf="personalInfo.phone">
-              <i class="fas fa-phone"></i>
-              <span>{{ personalInfo.phone }}</span>
-            </div>
+        <div class="info-details">
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{ personalInfo.location }}</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-envelope"></i>
+            <span>{{ personalInfo.email }}</span>
           </div>
         </div>
 
         <div class="stats-grid">
           <div class="stat-card">
-            <i class="fas fa-code"></i>
             <h4>5+</h4>
-            <p>Projets réalisés</p>
+            <p>Projets</p>
           </div>
           <div class="stat-card">
-            <i class="fas fa-users"></i>
             <h4>10+</h4>
             <p>Collaborations</p>
           </div>
           <div class="stat-card">
-            <i class="fas fa-clock"></i>
-            <h4>1000+</h4>
-            <p>Heures de pratique</p>
+            <h4>1k+</h4>
+            <p>Heures Code</p>
           </div>
         </div>
       </div>
 
+      <!-- Skills Section -->
       <div class="skills-wrapper">
         <div class="skills-header">
-          <div>
-            <span>Stack technique</span>
-            <h3>Des compétences lisibles, organisées par usage.</h3>
+          <div class="header-text">
+            <span>Compétences</span>
+            <h3>Maîtrise technique</h3>
           </div>
+
           <div class="skills-controls">
-            <button type="button" (click)="prevSkillSlide()" aria-label="Compétences précédentes">
+            <button type="button" (click)="prevSkillSlide()" aria-label="Précédent">
               <i class="fas fa-chevron-left"></i>
             </button>
-            <button type="button" (click)="nextSkillSlide()" aria-label="Compétences suivantes">
+            <button type="button" (click)="nextSkillSlide()" aria-label="Suivant">
               <i class="fas fa-chevron-right"></i>
             </button>
           </div>
         </div>
 
-        <div class="skills-carousel" aria-live="polite">
+        <div class="skills-carousel">
           <div
             class="skills-track"
             [style.transform]="'translateX(' + (-activeSkillIndex * 100) + '%)'">
-            <article *ngFor="let category of skillCategories; let i = index" class="skill-category">
-              <div class="category-meta">
-                <span>0{{ i + 1 }}</span>
-                <small>{{ getSkillsByCategory(category).length }} compétences</small>
-              </div>
+            <article *ngFor="let category of skillCategories" class="skill-category">
               <h4 class="category-title">{{ category }}</h4>
+              <p class="category-count">{{ getSkillsByCategory(category).length }} technologies maîtrisées</p>
 
               <div class="skills-list">
                 <div *ngFor="let skill of getSkillsByCategory(category)" class="skill-item">
                   <div class="skill-header">
-                    <span>{{ skill.name }}</span>
-                    <span>{{ skill.level }}%</span>
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <span class="skill-value">{{ skill.level }}%</span>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-progress" [style.width]="getSkillPercentage(skill.level)"></div>
+                    <div class="skill-progress" [style.width]="skill.level + '%'"></div>
                   </div>
                 </div>
               </div>
@@ -90,13 +80,12 @@
           </div>
         </div>
 
-        <div class="skills-dots" aria-label="Choisir une catégorie de compétences">
+        <div class="skills-dots">
           <button
             *ngFor="let category of skillCategories; let i = index"
             type="button"
             [class.active]="i === activeSkillIndex"
-            (click)="goToSkillSlide(i)"
-            [attr.aria-label]="'Afficher ' + category">
+            (click)="goToSkillSlide(i)">
           </button>
         </div>
       </div>
