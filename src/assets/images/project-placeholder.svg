@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Apercu de projet</title>
+  <desc id="desc">Illustration abstraite pour les projets du portfolio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2e412e"/>
+      <stop offset="1" stop-color="#8dc1ec"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#eef7ff" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect x="150" y="130" width="900" height="490" rx="28" fill="url(#card)"/>
+  <rect x="210" y="205" width="360" height="34" rx="17" fill="#4A7C59"/>
+  <rect x="210" y="278" width="780" height="22" rx="11" fill="#c5d9d4"/>
+  <rect x="210" y="328" width="620" height="22" rx="11" fill="#d7e6f2"/>
+  <rect x="210" y="410" width="220" height="90" rx="18" fill="#8dc1ec"/>
+  <rect x="480" y="410" width="220" height="90" rx="18" fill="#4A7C59"/>
+  <rect x="750" y="410" width="220" height="90" rx="18" fill="#607f80"/>
+  <circle cx="920" cy="218" r="54" fill="#e07040" opacity="0.9"/>
+</svg>

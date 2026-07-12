@@ -1,52 +1,78 @@
 <!-- src/app/components/hero/hero.component.html -->
 <section class="hero-section" *ngIf="personalInfo">
-  <div class="hero-background">
-    <div class="animated-bg"></div>
-  </div>
-  
   <div class="hero-container">
-    <div class="hero-content">
+    <div class="hero-layout">
+      <div class="shipment-stage" aria-hidden="true">
+        <div class="shipment-label">
+          <div class="label-head">
+            <span>Bordereau de mission</span>
+            <span>N° BR-2026</span>
+          </div>
+
+          <div class="label-body">
+            <div class="label-row">
+              <span>Profil</span>
+              <strong>Full Stack</strong>
+            </div>
+            <div class="label-row">
+              <span>Destination</span>
+              <strong>Produit stable</strong>
+            </div>
+            <div class="label-row">
+              <span>Stack</span>
+              <strong>Web · Mobile · API</strong>
+            </div>
+            <div class="label-row">
+              <span>Priorité</span>
+              <strong>Performance</strong>
+            </div>
+
+            <div class="track-strip">
+              <div class="track-title">Suivi en temps réel</div>
+              <div class="track-steps">
+                <span class="track-line"></span>
+                <div class="step active"><span></span><small>Brief</small></div>
+                <div class="step active"><span></span><small>Design</small></div>
+                <div class="step active"><span></span><small>Build</small></div>
+                <div class="step"><span></span><small>Launch</small></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stamp-mark">Livré<br>propre</div>
+        </div>
+      </div>
+
       <div class="hero-text">
-        <div class="greeting">Bonjour, je suis</div>
+        <div class="greeting">Disponible pour nouveaux projets</div>
         <h1 class="hero-name">{{ personalInfo.name }}</h1>
         <h2 class="hero-title">{{ personalInfo.title }}</h2>
         <p class="hero-bio">{{ personalInfo.bio }}</p>
-        
+
         <div class="hero-actions">
-          <button class="btn-primary" (click)="scrollToSection('projects')">
-            <i class="fas fa-briefcase"></i> Voir mes projets
+          <button class="btn-primary" (click)="scrollToSection('contact')">
+            <i class="fas fa-paper-plane"></i> Lancer un projet
           </button>
-          <button class="btn-secondary" (click)="scrollToSection('contact')">
-            <i class="fas fa-envelope"></i> Me contacter
+          <button class="btn-secondary" (click)="scrollToSection('projects')">
+            <i class="fas fa-briefcase"></i> Voir les réalisations
           </button>
           <button class="btn-outline" (click)="downloadCV()" *ngIf="personalInfo.cv">
-            <i class="fas fa-download"></i> Télécharger CV
+            <i class="fas fa-download"></i> Télécharger le CV
           </button>
         </div>
-        
+
         <div class="hero-socials">
-          <a 
-            *ngFor="let social of personalInfo.socials" 
-            [href]="social.url" 
+          <a
+            *ngFor="let social of personalInfo.socials"
+            [href]="social.url"
             target="_blank"
+            rel="noopener noreferrer"
             class="social-link"
             [title]="social.platform">
             <i [class]="social.icon"></i>
           </a>
         </div>
-      </div><!-- ✅ Fermeture de .hero-text -->
-
-      <div class="hero-image">
-        <div class="image-wrapper">
-          <img [src]="personalInfo.photo" [alt]="personalInfo.name">
-          <div class="image-decoration">
-          </div>
-        </div>
       </div>
-      
-      <div class="scroll-indicator" (click)="scrollToSection('about')">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-    </div><!-- ✅ Fermeture de .hero-content -->
-  </div><!-- ✅ Fermeture de .hero-container -->
+    </div>
+  </div>
 </section>

@@ -9,6 +9,9 @@ import { PortfolioService } from '../../services/portfolio.service';
 interface ContactForm {
   name: string;
   email: string;
+  projectType: string;
+  budget: string;
+  timeline: string;
   subject: string;
   message: string;
 }
@@ -26,6 +29,9 @@ export class ContactComponent implements OnInit {
   formData: ContactForm = {
     name: '',
     email: '',
+    projectType: '',
+    budget: '',
+    timeline: '',
     subject: '',
     message: ''
   };
@@ -43,27 +49,38 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.isFormValid()) {
-      this.isSubmitting = true;
-      this.submitSuccess = false;
-      this.submitError = false;
-
-      // Simulation d'envoi (remplace par ton API ou service d'email)
-      setTimeout(() => {
-        this.isSubmitting = false;
-        this.submitSuccess = true;
-        
-        // Reset form après 3 secondes
-        setTimeout(() => {
-          this.resetForm();
-        }, 3000);
-      }, 1500);
+    if (!this.isFormValid() || !this.personalInfo?.email) {
+      this.submitError = true;
+      return;
     }
+
+    this.isSubmitting = true;
+    this.submitSuccess = false;
+    this.submitError = false;
+
+    const subject = encodeURIComponent(`[Portfolio] ${this.formData.subject}`);
+    const body = encodeURIComponent(
+      `Nom: ${this.formData.name}\n` +
+      `Email: ${this.formData.email}\n` +
+      `Type de projet: ${this.formData.projectType}\n` +
+      `Budget: ${this.formData.budget || 'A definir'}\n` +
+      `Delai souhaite: ${this.formData.timeline}\n\n` +
+      `Message:\n${this.formData.message}`
+    );
+
+    window.location.href = `mailto:${this.personalInfo.email}?subject=${subject}&body=${body}`;
+
+    setTimeout(() => {
+      this.isSubmitting = false;
+      this.submitSuccess = true;
+    }, 700);
   }
 
   isFormValid(): boolean {
     return this.formData.name.trim() !== '' &&
            this.formData.email.trim() !== '' &&
+           this.formData.projectType.trim() !== '' &&
+           this.formData.timeline.trim() !== '' &&
            this.formData.subject.trim() !== '' &&
            this.formData.message.trim() !== '' &&
            this.isValidEmail(this.formData.email);
@@ -78,6 +95,9 @@ export class ContactComponent implements OnInit {
     this.formData = {
       name: '',
       email: '',
+      projectType: '',
+      budget: '',
+      timeline: '',
       subject: '',
       message: ''
     };
@@ -87,7 +107,7 @@ export class ContactComponent implements OnInit {
 
   sendEmail(): void {
     if (this.personalInfo?.email) {
-      window.location.href = `mailto:${this.personalInfo.email}`;
+      window.location.href = `mailto:${this.personalInfo.email}?subject=${encodeURIComponent('Demande de collaboration')}`;
     }
   }
 }

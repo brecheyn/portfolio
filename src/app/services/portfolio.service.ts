@@ -9,21 +9,20 @@ import { Project, Experience, Skill, PersonalInfo, ProjectCategory, SkillCategor
 })
 export class PortfolioService {
 
-private personalInfo: PersonalInfo = {
-  name: 'NADINGA Yienouyaba Phares',
-  title: 'Développeur Full Stack • ByN', // Ou juste 'Développeur Full Stack'
-  bio: 'Passionné par le développement web et mobile, je crée des solutions innovantes et performantes. Connu sous le pseudo @brecheyn.',
-  email: 'yienouyaban@gmail.com', 
-  phone: '+226 54441150',
-  location: 'Ouagadougou, Burkina Faso',
-  photo: 'assets/images/profile.png',
-  cv: 'assets/cv/cvNadinga.pdf',
-  socials: [
-    { platform: SocialPlatform.GITHUB, url: 'https://github.com/brecheyn', icon: 'fab fa-github' },
-    { platform: SocialPlatform.LINKEDIN, url: 'https://linkedin.com/in/', icon: 'fab fa-linkedin' },
-    // Tu peux ajouter d'autres réseaux si tu veux
-  ]
-};
+  private personalInfo: PersonalInfo = {
+    name: 'NADINGA Yienouyaba Phares',
+    title: 'Développeur Full Stack • ByN',
+    bio: 'Passionné par le développement web et mobile, je crée des solutions innovantes et performantes. Je suis aussi connu sous le pseudo @brecheyn.',
+    email: 'yienouyaban@gmail.com',
+    phone: '+226 54441150',
+    location: 'Ouagadougou, Burkina Faso',
+    photo: 'assets/images/profile.png',
+    cv: 'assets/cv/cvNadinga.pdf',
+    socials: [
+      { platform: SocialPlatform.GITHUB, url: 'https://github.com/brecheyn', icon: 'fab fa-github' },
+      { platform: SocialPlatform.LINKEDIN, url: 'https://linkedin.com/in/', icon: 'fab fa-linkedin' },
+    ]
+  };
 
   private projects: Project[] = [
     {
@@ -38,14 +37,8 @@ private personalInfo: PersonalInfo = {
         { name: 'RxJS', color: '#B7178C' },
         { name: 'Firebase', color: '#FFCA28' }
       ],
-      images: [
-        'assets/projects/ecommerce/home.png',
-        'assets/projects/ecommerce/product.png',
-        'assets/projects/ecommerce/cart.png'
-      ],
-      demoVideo: 'https://youtube.com/embed/XXXXX',
-      githubUrl: 'https://github.com/tonpseudo/ecommerce-angular',
-      liveUrl: 'https://mon-ecommerce.vercel.app',
+      images: ['assets/images/project-placeholder.svg'],
+      githubUrl: 'https://github.com/brecheyn',
       features: [
         'Authentification utilisateur',
         'Gestion du panier',
@@ -73,11 +66,8 @@ private personalInfo: PersonalInfo = {
         { name: 'MongoDB', color: '#47A248' },
         { name: 'JWT', color: '#000000' }
       ],
-      images: [
-        'assets/projects/api/swagger.png',
-        'assets/projects/api/postman.png'
-      ],
-      githubUrl: 'https://github.com/tonpseudo/api-nodejs',
+      images: ['assets/images/project-placeholder.svg'],
+      githubUrl: 'https://github.com/brecheyn',
       features: [
         'Authentification JWT',
         'CRUD complet',
@@ -94,15 +84,15 @@ private personalInfo: PersonalInfo = {
     {
       id: '1',
       company: 'Inviis',
-      position: 'Stage en developpement mobile et web',
-      startDate: new Date('2025-08-4'),
+      position: 'Stage en développement mobile et web',
+      startDate: new Date('2025-08-04'),
       current: true,
-      description: 'Développement d\'applications, site web et mobiles',
+      description: 'Développement d\'applications web et mobiles',
       achievements: [
-        'Développement de 1 applications web et 1 mobiles',
+        'Développement d\'une application web et d\'une application mobile',
         'Amélioration des performances de 40%',
       ],
-      technologies: ['vite+ vue.js', 'Node.js', 'MongoDB', 'Docker']
+      technologies: ['Vite', 'Vue.js', 'Node.js', 'MongoDB', 'Docker']
     },
     {
       id: '2',
