@@ -12,7 +12,7 @@ export class PortfolioService {
   private personalInfo: PersonalInfo = {
     name: 'NADINGA Yienouyaba Phares',
     title: 'Développeur Full Stack • ByN',
-    bio: 'Passionné par le développement web et mobile, je crée des solutions innovantes et performantes. Je suis aussi connu sous le pseudo @brecheyn.',
+    bio: 'Passionné par le développement de solutions robustes et innovantes, je combine expertise technique et vision produit pour créer des applications web et mobiles performantes.',
     email: 'yienouyaban@gmail.com',
     phone: '+226 54441150',
     location: 'Ouagadougou, Burkina Faso',
@@ -20,132 +20,125 @@ export class PortfolioService {
     cv: 'assets/cv/cvNadinga.pdf',
     socials: [
       { platform: SocialPlatform.GITHUB, url: 'https://github.com/brecheyn', icon: 'fab fa-github' },
-      { platform: SocialPlatform.LINKEDIN, url: 'https://linkedin.com/in/', icon: 'fab fa-linkedin' },
+      { platform: SocialPlatform.LINKEDIN, url: 'https://linkedin.com/in/phares-nadinga', icon: 'fab fa-linkedin' },
     ]
   };
 
   private projects: Project[] = [
     {
-      id: '1',
-      title: 'E-Commerce Angular',
-      shortDescription: 'Plateforme e-commerce complète avec panier et paiement',
-      fullDescription: 'Application e-commerce développée avec Angular, permettant la gestion complète d\'un catalogue produits, panier d\'achat, et système de paiement intégré.',
-      category: ProjectCategory.WEB,
+      id: 'zawani',
+      title: 'ZAWANI',
+      shortDescription: 'Annuaire intelligent pour commerces locaux',
+      fullDescription: 'Application mobile de mise en relation entre clients et commerces de proximité avec recherche géolocalisée et notation par IA.',
+      category: ProjectCategory.FULLSTACK,
       technologies: [
-        { name: 'Angular', color: '#DD0031' },
-        { name: 'TypeScript', color: '#3178C6' },
-        { name: 'RxJS', color: '#B7178C' },
-        { name: 'Firebase', color: '#FFCA28' }
+        { name: 'Flask', color: '#000000' },
+        { name: 'React', color: '#61DAFB' },
+        { name: 'PostgreSQL', color: '#336791' },
+        { name: 'Firebase', color: '#FFCA28' },
+        { name: 'Capacitor', color: '#119EFF' }
       ],
-      images: ['assets/images/project-placeholder.svg'],
-      githubUrl: 'https://github.com/brecheyn',
+      images: ['assets/images/zawani-main.png'],
+      githubUrl: 'https://github.com/brecheyn/zawani',
       features: [
-        'Authentification utilisateur',
-        'Gestion du panier',
-        'Filtrage et recherche de produits',
-        'Interface responsive',
-        'Tableau de bord admin'
+        'Recherche géolocalisée',
+        'Notation intelligente des avis via IA',
+        'Mode hors-ligne partiel',
+        'Tableau de bord de statistiques'
       ],
       challenges: [
-        'Gestion d\'état complexe avec RxJS',
-        'Optimisation des performances',
-        'Intégration du système de paiement'
+        'Synchronisation des données en temps réel',
+        'Intégration de l\'IA pour l\'analyse sémantique',
+        'Optimisation du rendu mobile via Capacitor'
       ],
-      date: new Date('2024-06-15'),
+      date: new Date('2024-12-01'),
       featured: true
     },
     {
-      id: '2',
-      title: 'API REST Node.js',
-      shortDescription: 'API sécurisée pour application mobile',
-      fullDescription: 'API RESTful développée avec Node.js et Express, incluant authentification JWT, validation des données et documentation Swagger.',
+      id: 'spotify-predictor',
+      title: 'Spotify Popularity Predictor',
+      shortDescription: 'IA de prédiction de popularité musicale',
+      fullDescription: 'Modèle de deep learning prédisant la popularité des chansons Spotify basé sur leurs caractéristiques audio.',
       category: ProjectCategory.BACKEND,
       technologies: [
-        { name: 'Node.js', color: '#339933' },
-        { name: 'Express', color: '#000000' },
-        { name: 'MongoDB', color: '#47A248' },
-        { name: 'JWT', color: '#000000' }
+        { name: 'Python', color: '#3776AB' },
+        { name: 'TensorFlow', color: '#FF6F00' },
+        { name: 'Scikit-learn', color: '#F7931E' },
+        { name: 'Pandas', color: '#150458' }
       ],
-      images: ['assets/images/project-placeholder.svg'],
-      githubUrl: 'https://github.com/brecheyn',
+      images: ['assets/images/spotify-predictor.png'],
+      githubUrl: 'https://github.com/brecheyn/spotify-popularity-predictor',
       features: [
-        'Authentification JWT',
-        'CRUD complet',
-        'Validation des données',
-        'Documentation Swagger',
-        'Tests unitaires'
+        'Réseau de neurones profond (Dense layers)',
+        'Analyse de 15 caractéristiques audio',
+        'Précision de 85.67%',
+        'Notebooks d\'exploration de données'
       ],
-      date: new Date('2024-03-20'),
+      challenges: [
+        'Équilibrage des classes de données',
+        'Optimisation des hyperparamètres',
+        'Gestion des caractéristiques audio corrélées'
+      ],
+      date: new Date('2024-08-10'),
+      featured: true
+    },
+    {
+      id: 'cl-creator',
+      title: 'CL-Creator',
+      shortDescription: 'Générateur de lettres de motivation par IA',
+      fullDescription: 'Outil intelligent utilisant l\'IA Groq pour générer des lettres de motivation personnalisées à partir d\'un CV.',
+      category: ProjectCategory.WEB,
+      technologies: [
+        { name: 'React', color: '#61DAFB' },
+        { name: 'Groq IA', color: '#F36F21' },
+        { name: 'Node.js', color: '#339933' },
+        { name: 'Vite', color: '#646CFF' }
+      ],
+      images: ['assets/images/cl-creator.png'],
+      githubUrl: 'https://github.com/brecheyn/cl-creator',
+      features: [
+        'Génération instantanée via Groq',
+        'Upload de CV au format PDF',
+        'Exportation directe des documents',
+        'Interface minimaliste et rapide'
+      ],
+      date: new Date('2024-10-05'),
       featured: false
     }
   ];
 
   private experiences: Experience[] = [
     {
-      id: '1',
+      id: 'inviis',
       company: 'Inviis',
-      position: 'Stage en développement mobile et web',
+      position: 'Stage Full Stack Developer',
       startDate: new Date('2025-08-04'),
       current: true,
-      description: 'Développement d\'applications web et mobiles',
+      description: 'Développement d\'applications web et mobiles à fort trafic.',
       achievements: [
-        'Développement d\'une application web et d\'une application mobile',
-        'Amélioration des performances de 40%',
+        'Optimisation des performances backend de 40%',
+        'Déploiement de solutions conteneurisées avec Docker',
+        'Mise en place de tests automatisés'
       ],
-      technologies: ['Vite', 'Vue.js', 'Node.js', 'MongoDB', 'Docker']
-    },
-    {
-      id: '2',
-      company: 'Projet Freelance',
-      position: 'Développeur Frontend',
-      startDate: new Date('2022-06-01'),
-      endDate: new Date('2022-12-31'),
-      current: false,
-      description: 'Développement d\'interfaces utilisateur modernes et responsives',
-      achievements: [
-        'Refonte complète de 3 sites web',
-        'Intégration de designs Figma',
-        'Optimisation SEO'
-      ],
-      technologies: ['Angular', 'React', 'Tailwind CSS']
+      technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Docker']
     }
   ];
 
   private skills: Skill[] = [
-  // Langages de programmation
-  { name: 'JavaScript', category: SkillCategory.FRONTEND, level: 80 },
-  { name: 'TypeScript', category: SkillCategory.FRONTEND, level: 80 },
-  { name: 'Python', category: SkillCategory.BACKEND, level: 80 },
-  { name: 'PHP', category: SkillCategory.BACKEND, level: 80 },
-  { name: 'Java', category: SkillCategory.BACKEND, level: 80 },
-  { name: 'HTML/CSS', category: SkillCategory.FRONTEND, level: 90 },
-  
-  // Frameworks Frontend
-  { name: 'Angular', category: SkillCategory.FRONTEND, level: 85 },
-  { name: 'React', category: SkillCategory.FRONTEND, level: 80 },
-  { name: 'Vue + Vite', category: SkillCategory.FRONTEND, level: 80 },
-  { name: 'Bootstrap', category: SkillCategory.FRONTEND, level: 80 },
-  
-  // Frameworks Backend
-  { name: 'Node.js', category: SkillCategory.BACKEND, level: 75 },
-  { name: 'Express', category: SkillCategory.BACKEND, level: 70 },
-  { name: 'Django', category: SkillCategory.BACKEND, level: 80 },
-  { name: 'Flask', category: SkillCategory.BACKEND, level: 80 },
-  { name: 'Laravel', category: SkillCategory.BACKEND, level: 80 },
-  
-  // Bases de données
-  { name: 'MongoDB', category: SkillCategory.DATABASE, level: 65 },
-  { name: 'MySQL', category: SkillCategory.DATABASE, level: 70 }, // Si tu l'utilises
-  
-  // Outils et DevOps
-  { name: 'Git', category: SkillCategory.TOOLS, level: 80 },
-  { name: 'Docker', category: SkillCategory.TOOLS, level: 60 },
-  { name: 'Metasploit', category: SkillCategory.TOOLS, level: 80 },
-  
-  // Design
-  { name: 'Figma', category: SkillCategory.TOOLS, level: 80 },
-  { name: 'Canva', category: SkillCategory.TOOLS, level: 80 },
-];
+    { name: 'JavaScript', category: SkillCategory.FRONTEND, level: 85 },
+    { name: 'TypeScript', category: SkillCategory.FRONTEND, level: 80 },
+    { name: 'Angular', category: SkillCategory.FRONTEND, level: 85 },
+    { name: 'React', category: SkillCategory.FRONTEND, level: 80 },
+    { name: 'Node.js', category: SkillCategory.BACKEND, level: 80 },
+    { name: 'Python', category: SkillCategory.BACKEND, level: 85 },
+    { name: 'Flask', category: SkillCategory.BACKEND, level: 75 },
+    { name: 'Django', category: SkillCategory.BACKEND, level: 70 },
+    { name: 'MongoDB', category: SkillCategory.DATABASE, level: 75 },
+    { name: 'PostgreSQL', category: SkillCategory.DATABASE, level: 80 },
+    { name: 'Docker', category: SkillCategory.TOOLS, level: 70 },
+    { name: 'Git', category: SkillCategory.TOOLS, level: 90 },
+    { name: 'Figma', category: SkillCategory.TOOLS, level: 75 }
+  ];
 
   constructor() { }
 
