@@ -11,8 +11,8 @@ export class PortfolioService {
 
   private personalInfo: PersonalInfo = {
     name: 'NADINGA Yienouyaba Phares',
-    title: 'Développeur Full Stack • ByN',
-    bio: 'Passionné par le développement de solutions robustes et innovantes, je combine expertise technique et vision produit pour créer des applications web et mobiles performantes.',
+    title: 'Développeur Full Stack • Analyste Cybersécurité',
+    bio: 'Passionné par le développement de solutions robustes et innovantes, je combine expertise technique en développement Full Stack et vision sécurisée (Analyste Cybersécurité) pour créer des applications performantes.',
     email: 'yienouyaban@gmail.com',
     phone: '+226 54441150',
     location: 'Ouagadougou, Burkina Faso',
@@ -25,6 +25,37 @@ export class PortfolioService {
   };
 
   private projects: Project[] = [
+    {
+      id: 'paluguard',
+      title: 'PaluGuard',
+      shortDescription: 'Système intelligent de prédiction du risque de paludisme au Burkina Faso',
+      fullDescription: 'Système d’alerte précoce conçu pour prédire le risque de pics épidémiques de paludisme deux semaines à l’avance en combinant machine learning interprétable, données climatiques et épidémiologiques.',
+      category: ProjectCategory.FULLSTACK,
+      technologies: [
+        { name: 'Flutter', color: '#02569B' },
+        { name: 'FastAPI', color: '#05998B' },
+        { name: 'Python', color: '#3776AB' },
+        { name: 'PyGAM', color: '#FFD43B' },
+        { name: 'Mapbox', color: '#4264FB' },
+        { name: 'SQLite', color: '#003B57' }
+      ],
+      images: ['assets/images/paluguard-main.png'],
+      githubUrl: 'https://github.com/brecheyn/paluguard',
+      features: [
+        'Prédiction du risque à 2 semaines avec modèles GAM',
+        'Classification en 4 niveaux : Normal, Vigilance, Alerte, Urgence',
+        'Carte interactive des zones à risque (Mapbox)',
+        'Tableau de bord épidémiologique complet',
+        'Gestion des rôles (RBAC) et authentification JWT'
+      ],
+      challenges: [
+        'Modélisation des relations non linéaires (climat vs épidémie)',
+        'Interprétabilité des modèles pour les acteurs de santé',
+        'Intégration de données hétérogènes (NDVI, précipitations, cas)'
+      ],
+      date: new Date('2026-04-01'),
+      featured: true
+    },
     {
       id: 'zawani',
       title: 'ZAWANI',
@@ -45,11 +76,6 @@ export class PortfolioService {
         'Notation intelligente des avis via IA',
         'Mode hors-ligne partiel',
         'Tableau de bord de statistiques'
-      ],
-      challenges: [
-        'Synchronisation des données en temps réel',
-        'Intégration de l\'IA pour l\'analyse sémantique',
-        'Optimisation du rendu mobile via Capacitor'
       ],
       date: new Date('2024-12-01'),
       featured: true
@@ -74,70 +100,56 @@ export class PortfolioService {
         'Précision de 85.67%',
         'Notebooks d\'exploration de données'
       ],
-      challenges: [
-        'Équilibrage des classes de données',
-        'Optimisation des hyperparamètres',
-        'Gestion des caractéristiques audio corrélées'
-      ],
       date: new Date('2024-08-10'),
       featured: true
-    },
-    {
-      id: 'cl-creator',
-      title: 'CL-Creator',
-      shortDescription: 'Générateur de lettres de motivation par IA',
-      fullDescription: 'Outil intelligent utilisant l\'IA Groq pour générer des lettres de motivation personnalisées à partir d\'un CV.',
-      category: ProjectCategory.WEB,
-      technologies: [
-        { name: 'React', color: '#61DAFB' },
-        { name: 'Groq IA', color: '#F36F21' },
-        { name: 'Node.js', color: '#339933' },
-        { name: 'Vite', color: '#646CFF' }
-      ],
-      images: ['assets/images/cl-creator.png'],
-      githubUrl: 'https://github.com/brecheyn/cl-creator',
-      features: [
-        'Génération instantanée via Groq',
-        'Upload de CV au format PDF',
-        'Exportation directe des documents',
-        'Interface minimaliste et rapide'
-      ],
-      date: new Date('2024-10-05'),
-      featured: false
     }
   ];
 
   private experiences: Experience[] = [
     {
-      id: 'inviis',
-      company: 'Inviis',
-      position: 'Stage Full Stack Developer',
-      startDate: new Date('2025-08-04'),
+      id: 'inviis-pro',
+      company: 'InViis',
+      position: 'Développeur Full Stack',
+      startDate: new Date('2026-04-01'),
       current: true,
-      description: 'Développement d\'applications web et mobiles à fort trafic.',
+      description: 'Travail sur des solutions critiques, notamment le projet PaluGuard.',
       achievements: [
-        'Optimisation des performances backend de 40%',
-        'Déploiement de solutions conteneurisées avec Docker',
-        'Mise en place de tests automatisés'
+        'Développement du système intelligent PaluGuard',
+        'Architecture modulaire Backend (FastAPI) et Mobile (Flutter)',
+        'Mise en œuvre de modèles prédictifs GAM'
       ],
-      technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Docker']
+      technologies: ['FastAPI', 'Flutter', 'Python', 'PyGAM', 'Docker']
+    },
+    {
+      id: 'inviis-intern',
+      company: 'InViis',
+      position: 'Stagiaire (Web, Mobile & IoT)',
+      startDate: new Date('2025-08-01'),
+      endDate: new Date('2025-10-01'),
+      current: false,
+      description: 'Stage d’apprentissage et de perfectionnement au sein de INVIIS, travaillant sur des projets innovants en développement web, mobile et IoT.',
+      achievements: [
+        'Développement d’un site vitrine avec Vue.js et Vite',
+        'Réalisation d’une application mobile avec Flutter et GetX',
+        'Mise en pratique d’outils IoT (PlatformIO, ESP32) avec panneaux LED P10 et buzzer'
+      ],
+      technologies: ['Vue.js', 'Flutter', 'PlatformIO', 'ESP32', 'Vite', 'IoT']
     }
   ];
 
   private skills: Skill[] = [
-    { name: 'JavaScript', category: SkillCategory.FRONTEND, level: 85 },
-    { name: 'TypeScript', category: SkillCategory.FRONTEND, level: 80 },
+    { name: 'JavaScript / TypeScript', category: SkillCategory.FRONTEND, level: 85 },
     { name: 'Angular', category: SkillCategory.FRONTEND, level: 85 },
-    { name: 'React', category: SkillCategory.FRONTEND, level: 80 },
+    { name: 'Flutter', category: SkillCategory.FRONTEND, level: 85 },
+    { name: 'React / Vue.js', category: SkillCategory.FRONTEND, level: 80 },
+    { name: 'Python (FastAPI/Flask)', category: SkillCategory.BACKEND, level: 90 },
+    { name: 'Machine Learning (GAM/DL)', category: SkillCategory.BACKEND, level: 80 },
     { name: 'Node.js', category: SkillCategory.BACKEND, level: 80 },
-    { name: 'Python', category: SkillCategory.BACKEND, level: 85 },
-    { name: 'Flask', category: SkillCategory.BACKEND, level: 75 },
-    { name: 'Django', category: SkillCategory.BACKEND, level: 70 },
+    { name: 'SQL / PostgreSQL', category: SkillCategory.DATABASE, level: 85 },
     { name: 'MongoDB', category: SkillCategory.DATABASE, level: 75 },
-    { name: 'PostgreSQL', category: SkillCategory.DATABASE, level: 80 },
-    { name: 'Docker', category: SkillCategory.TOOLS, level: 70 },
-    { name: 'Git', category: SkillCategory.TOOLS, level: 90 },
-    { name: 'Figma', category: SkillCategory.TOOLS, level: 75 }
+    { name: 'Git / Docker', category: SkillCategory.TOOLS, level: 90 },
+    { name: 'Cybersécurité', category: SkillCategory.TOOLS, level: 75 },
+    { name: 'IoT / PlatformIO', category: SkillCategory.TOOLS, level: 80 }
   ];
 
   constructor() { }
