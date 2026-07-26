@@ -3,7 +3,7 @@
 import { Injectable, signal, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, tap, catchError } from 'rxjs/operators';
+import { catchError, finalize, tap } from 'rxjs/operators';
 
 // Fallback translations for critical UI text
 const FALLBACK_TRANSLATIONS: Record<string, any> = {
@@ -64,17 +64,17 @@ const FALLBACK_TRANSLATIONS: Record<string, any> = {
       contact: "Contact"
     },
     hero: {
-      greeting: "Disponible pour nouveaux projets",
+      greeting: "Disponible pour de nouveaux projets",
       cta: {
         primary: "Voir les projets",
-        secondary: "Télécharger CV"
+        secondary: "Télécharger le CV"
       }
     },
     home: {
       title: "Accueil",
-      subtitle: "Développeur Full Stack & Analyste en Cybersécurité",
+      subtitle: "Développeur Full Stack & Analyste Cybersécurité",
       hero: {
-        tagline: "Développeur Full Stack et analyste en cybersécurité construisant des systèmes résilients pour un impact réel.",
+        tagline: "Développeur Full Stack & Analyste Cybersécurité construisant des systèmes résilients pour un impact réel.",
         cta: {
           primary: "Voir les projets",
           secondary: "Contact"
@@ -114,10 +114,10 @@ export class TranslationService {
   private http = inject(HttpClient);
   private translations: Record<string, any> = {};
   private readonly STORAGE_KEY = 'portfolio-language';
-  
+
   // Signal for reactive language changes
   language = signal<Language>(this.detectLanguage());
-  
+
   // Signal to track if translations are loaded
   loaded = signal<boolean>(false);
 
@@ -126,7 +126,7 @@ export class TranslationService {
     if (saved && ['en', 'fr'].includes(saved)) {
       return saved;
     }
-    
+
     const browserLang = navigator.language;
     return browserLang.startsWith('fr') ? 'fr' : 'en';
   }
@@ -135,14 +135,14 @@ export class TranslationService {
     return this.http.get<Record<string, any>>(`assets/i18n/${lang}.json`).pipe(
       tap(translations => {
         this.translations = translations;
-        this.loaded.set(true);
       }),
       catchError(error => {
         console.error(`Failed to load translations for ${lang}:`, error);
-        // Use fallback translations
         this.translations = FALLBACK_TRANSLATIONS[lang] || FALLBACK_TRANSLATIONS['en'];
-        this.loaded.set(true);
         return of(this.translations);
+      }),
+      finalize(() => {
+        this.loaded.set(true);
       })
     );
   }
@@ -158,21 +158,22 @@ export class TranslationService {
   }
 
   t(key: string, params?: Record<string, string>): string {
-    const keys = key.split('.');
-    let value: any = this.translations;
-    
-    for (const k of keys) {
-      value = value?.[k];
-      if (value === undefined) return key;
-    }
-    
+    const value = this.lookup(key, this.translations)
+      ?? this.lookup(key, FALLBACK_TRANSLATIONS[this.getCurrentLanguage()])
+      ?? this.lookup(key, FALLBACK_TRANSLATIONS['en']);
+
     if (params && typeof value === 'string') {
-      Object.keys(params).forEach(param => {
-        value = value['replace'](`{{${param}}}`, params[param]);
-      });
+      return Object.keys(params).reduce(
+        (text, param) => text.replace(`{{${param}}}`, params[param]),
+        value
+      );
     }
-    
+
     return typeof value === 'string' ? value : key;
+  }
+
+  private lookup(key: string, source: Record<string, any> | undefined): string | undefined {
+    return key.split('.').reduce<any>((value, k) => value?.[k], source);
   }
 
   getCurrentLanguage(): Language {

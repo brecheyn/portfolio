@@ -7,13 +7,15 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Disponible pour nouveaux projets",
+    "greeting": "Disponible pour de nouveaux projets",
     "cta": {
       "primary": "Voir les projets",
       "secondary": "Télécharger le CV"
     }
   },
   "home": {
+    "title": "Accueil",
+    "subtitle": "Développeur Full Stack & Analyste Cybersécurité",
     "hero": {
       "tagline": "Développeur Full Stack & Analyste Cybersécurité construisant des systèmes résilients pour un impact réel.",
       "cta": {
@@ -85,10 +87,6 @@
     "current": "En cours",
     "duration": "Durée",
     "achievements": "Réalisations clés"
-  },
-  "home": {
-    "title": "Accueil",
-    "subtitle": "Développeur Full Stack & Analyste Cybersécurité"
   },
   "contact": {
     "title": "Contact",
