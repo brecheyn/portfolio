@@ -3,6 +3,10 @@
   "outputDirectory": "dist/mon-portfolio/browser",
   "rewrites": [
     {
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
