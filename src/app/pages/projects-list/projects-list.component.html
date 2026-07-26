@@ -1,0 +1,95 @@
+<!-- src/app/pages/projects-list/projects-list.component.html -->
+
+<!-- Header with Navigation -->
+<header class="site-header">
+  <div class="header-container">
+    <a routerLink="/" class="logo">Phares NADINGA</a>
+    
+    <nav class="main-nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active">{{ t('nav.home') }}</a>
+      <a routerLink="/about" routerLinkActive="active">{{ t('nav.about') }}</a>
+      <a routerLink="/projects" routerLinkActive="active">{{ t('nav.projects') }}</a>
+      <a routerLink="/experience" routerLinkActive="active">{{ t('nav.experience') }}</a>
+      <a routerLink="/contact" routerLinkActive="active">{{ t('nav.contact') }}</a>
+    </nav>
+    
+    <div class="header-controls">
+      <button 
+        class="theme-toggle" 
+        (click)="toggleTheme()"
+        [attr.aria-label]="getCurrentTheme() === 'dark' ? t('theme.light') : t('theme.dark')">
+        <i class="fas" [class.fa-moon]="getCurrentTheme() === 'dark'" [class.fa-sun]="getCurrentTheme() === 'light'"></i>
+      </button>
+      
+      <div class="language-switcher">
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'fr'"
+          (click)="translationService.setLanguage('fr')"
+          aria-label="Français">FR</button>
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'en'"
+          (click)="translationService.setLanguage('en')"
+          aria-label="English">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="projects-section">
+  <div class="container">
+    <h1 class="page-title">{{ t('projects.title') }}</h1>
+    <p class="page-subtitle">{{ t('projects.subtitle') }}</p>
+
+    <!-- Filtres par catégorie -->
+    <div class="filters">
+      <button 
+        class="filter-btn"
+        [class.active]="selectedCategory === 'ALL'"
+        (click)="filterByCategory('ALL')">
+        {{ t('projects.filters.all') }}
+      </button>
+      <button 
+        *ngFor="let category of categories"
+        class="filter-btn"
+        [class.active]="selectedCategory === category"
+        (click)="filterByCategory(category)">
+        {{ t('projects.filters.' + category.toLowerCase().replace(' ', '')) }}
+      </button>
+    </div>
+
+    <!-- Grille de projets -->
+    <div class="projects-grid">
+      <article *ngFor="let project of filteredProjects" class="project-card">
+        <div class="project-image">
+          <img [src]="project.images[0]" [alt]="project.title + ' screenshot'" loading="lazy">
+        </div>
+        
+        <div class="project-content">
+          <span class="project-category">{{ project.category }}</span>
+          <h2 class="project-title">{{ project.title }}</h2>
+          <p class="project-description">{{ project.shortDescription }}</p>
+          
+          <div class="project-tech">
+            <span 
+              *ngFor="let tech of project.technologies" 
+              class="tech-badge"
+              [style.background-color]="tech.color ? tech.color + '20' : ''"
+              [style.color]="tech.color">
+              {{ tech.name }}
+            </span>
+          </div>
+          
+          <a [routerLink]="['/projects', project.id]" class="project-link">
+            {{ t('projects.card.viewDetails') }} <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>{{ t('footer.copyright') }}</p>
+</footer>

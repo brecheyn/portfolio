@@ -1,0 +1,145 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Available for new projects",
+    "cta": {
+      "primary": "View Projects",
+      "secondary": "Download CV"
+    }
+  },
+  "home": {
+    "title": "Home",
+    "subtitle": "Full Stack Developer & Cybersecurity Analyst",
+    "hero": {
+      "tagline": "Full Stack Developer & Cybersecurity Analyst building resilient systems for real-world impact.",
+      "cta": {
+        "primary": "View Projects",
+        "secondary": "Contact"
+      }
+    },
+    "featuredProjects": {
+      "title": "Featured Projects",
+      "subtitle": "Selected work delivering measurable results",
+      "viewAll": "View all projects"
+    }
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Full-stack engineer focused on practical solutions",
+    "profile": {
+      "heading": "Profile",
+      "bio": "Full-stack developer and cybersecurity analyst with 3+ years of experience building web and mobile applications. Specialized in offline-first architectures and predictive modeling for public health systems. Currently leading technical development at InViis on projects deployed in Burkina Faso.",
+      "location": "Location",
+      "email": "Email"
+    },
+    "stats": {
+      "projects": "Projects",
+      "collaborations": "Collaborations",
+      "codeHours": "Code Hours"
+    },
+    "skills": {
+      "label": "Technical Skills",
+      "title": "Tech Stack",
+      "count": "technologies mastered"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "All projects with measurable outcomes",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "fullstack": "Full Stack",
+      "backend": "Backend",
+      "other": "Other"
+    },
+    "card": {
+      "viewDetails": "View details"
+    },
+    "links": {
+      "code": "Code",
+      "demo": "Live Demo"
+    }
+  },
+  "projectDetail": {
+    "problem": "Problem",
+    "approach": "Approach",
+    "techStack": "Tech Stack",
+    "keyFeatures": "Key Features",
+    "challenges": "Challenges & Solutions",
+    "results": "Results & Impact",
+    "screenshots": "Screenshots",
+    "links": {
+      "github": "View on GitHub",
+      "demo": "Live Demo"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Professional journey and achievements",
+    "current": "Current",
+    "duration": "Duration",
+    "achievements": "Key Achievements"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's discuss your project",
+    "availability": "Ready to transform an idea into a concrete product.",
+    "highlights": {
+      "quickResponse": "Quick response",
+      "solutions": "Web & mobile solutions",
+      "reliable": "Reliable & scalable code"
+    },
+    "form": {
+      "heading": "Project Brief",
+      "subheading": "Explain your needs in 2 minutes",
+      "name": "Full name",
+      "email": "Email address",
+      "projectType": "Project type",
+      "projectTypes": {
+        "web": "Web Application",
+        "mobile": "Mobile Application",
+        "backend": "API / Backend",
+        "refactor": "Refactor or optimization"
+      },
+      "timeline": "Timeline",
+      "timelines": {
+        "urgent": "Urgent",
+        "short": "2-4 weeks",
+        "medium": "1-3 months",
+        "flexible": "To be defined together"
+      },
+      "budget": "Indicative budget",
+      "budgets": {
+        "small": "Small budget",
+        "medium": "Medium budget",
+        "structured": "Structured project"
+      },
+      "subject": "Main objective",
+      "message": "Project context",
+      "submit": "Prepare my request",
+      "submitting": "Preparing...",
+      "success": "Email ready to send",
+      "note": "The button will open your email client with a pre-filled message."
+    },
+    "socials": "Professional Networks"
+  },
+  "footer": {
+    "copyright": "© 2024 Phares NADINGA. All rights reserved."
+  },
+  "theme": {
+    "dark": "Dark mode",
+    "light": "Light mode"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  }
+}

@@ -1,0 +1,130 @@
+<!-- src/app/pages/project-detail/project-detail.component.html -->
+
+<!-- Header with Navigation -->
+<header class="site-header">
+  <div class="header-container">
+    <a routerLink="/" class="logo">Phares NADINGA</a>
+    
+    <nav class="main-nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active">{{ t('nav.home') }}</a>
+      <a routerLink="/about" routerLinkActive="active">{{ t('nav.about') }}</a>
+      <a routerLink="/projects" routerLinkActive="active">{{ t('nav.projects') }}</a>
+      <a routerLink="/experience" routerLinkActive="active">{{ t('nav.experience') }}</a>
+      <a routerLink="/contact" routerLinkActive="active">{{ t('nav.contact') }}</a>
+    </nav>
+    
+    <div class="header-controls">
+      <button 
+        class="theme-toggle" 
+        (click)="toggleTheme()"
+        [attr.aria-label]="getCurrentTheme() === 'dark' ? t('theme.light') : t('theme.dark')">
+        <i class="fas" [class.fa-moon]="getCurrentTheme() === 'dark'" [class.fa-sun]="getCurrentTheme() === 'light'"></i>
+      </button>
+      
+      <div class="language-switcher">
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'fr'"
+          (click)="translationService.setLanguage('fr')"
+          aria-label="Français">FR</button>
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'en'"
+          (click)="translationService.setLanguage('en')"
+          aria-label="English">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="project-detail-section" *ngIf="project">
+  <div class="container">
+    <a routerLink="/projects" class="back-link">
+      <i class="fas fa-arrow-left"></i> {{ t('nav.projects') }}
+    </a>
+    
+    <h1 class="project-title">{{ project.title }}</h1>
+    
+    <div class="project-meta">
+      <span class="project-category">{{ project.category }}</span>
+      <span class="project-date">{{ project.date | date }}</span>
+    </div>
+
+    <!-- Screenshots Gallery -->
+    <div class="project-gallery" *ngIf="project.images && project.images.length > 0">
+      <h2>{{ t('projectDetail.screenshots') }}</h2>
+      <div class="gallery-grid">
+        <img 
+          *ngFor="let image of project.images" 
+          [src]="image" 
+          [alt]="project.title + ' screenshot'"
+          loading="lazy"
+          class="gallery-image">
+      </div>
+    </div>
+
+    <!-- Problem -->
+    <div class="project-section" *ngIf="project.problem">
+      <h2>{{ t('projectDetail.problem') }}</h2>
+      <p class="section-content">{{ project.problem }}</p>
+    </div>
+
+    <!-- Approach -->
+    <div class="project-section" *ngIf="project.approach">
+      <h2>{{ t('projectDetail.approach') }}</h2>
+      <p class="section-content">{{ project.approach }}</p>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="project-section" *ngIf="project.technologies && project.technologies.length > 0">
+      <h2>{{ t('projectDetail.techStack') }}</h2>
+      <p class="section-content" *ngIf="project.techStackJustification">{{ project.techStackJustification }}</p>
+      <div class="tech-grid">
+        <div *ngFor="let tech of project.technologies" class="tech-item">
+          <span class="tech-name">{{ tech.name }}</span>
+          <span class="tech-justification" *ngIf="tech.justification">{{ tech.justification }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="project-section" *ngIf="project.features && project.features.length > 0">
+      <h2>{{ t('projectDetail.keyFeatures') }}</h2>
+      <ul class="features-list">
+        <li *ngFor="let feature of project.features">
+          <i class="fas fa-check"></i> {{ feature }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Challenges & Solutions -->
+    <div class="project-section" *ngIf="project.challenges && project.challenges.length > 0">
+      <h2>{{ t('projectDetail.challenges') }}</h2>
+      <ul class="challenges-list">
+        <li *ngFor="let challenge of project.challenges">
+          <i class="fas fa-lightbulb"></i> {{ challenge }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Results/Impact -->
+    <div class="project-section" *ngIf="project.results">
+      <h2>{{ t('projectDetail.results') }}</h2>
+      <p class="section-content">{{ project.results }}</p>
+    </div>
+
+    <!-- Links -->
+    <div class="project-links">
+      <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" class="link-btn">
+        <i class="fab fa-github"></i> {{ t('projectDetail.links.github') }}
+      </a>
+      <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" class="link-btn primary">
+        <i class="fas fa-external-link-alt"></i> {{ t('projectDetail.links.demo') }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>{{ t('footer.copyright') }}</p>
+</footer>

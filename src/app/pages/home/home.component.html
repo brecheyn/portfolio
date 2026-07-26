@@ -1,0 +1,89 @@
+<!-- src/app/pages/home/home.component.html -->
+
+<!-- Header with Navigation -->
+<header class="site-header">
+  <div class="header-container">
+    <a routerLink="/" class="logo">Phares NADINGA</a>
+    
+    <nav class="main-nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active">{{ t('nav.home') }}</a>
+      <a routerLink="/about" routerLinkActive="active">{{ t('nav.about') }}</a>
+      <a routerLink="/projects" routerLinkActive="active">{{ t('nav.projects') }}</a>
+      <a routerLink="/experience" routerLinkActive="active">{{ t('nav.experience') }}</a>
+      <a routerLink="/contact" routerLinkActive="active">{{ t('nav.contact') }}</a>
+    </nav>
+    
+    <div class="header-controls">
+      <button 
+        class="theme-toggle" 
+        (click)="toggleTheme()"
+        [attr.aria-label]="getCurrentTheme() === 'dark' ? t('theme.light') : t('theme.dark')">
+        <i class="fas" [class.fa-moon]="getCurrentTheme() === 'dark'" [class.fa-sun]="getCurrentTheme() === 'light'"></i>
+      </button>
+      
+      <div class="language-switcher">
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'fr'"
+          (click)="translationService.setLanguage('fr')"
+          aria-label="Français">FR</button>
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'en'"
+          (click)="translationService.setLanguage('en')"
+          aria-label="English">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section - Simplified -->
+<section class="hero-section">
+  <div class="hero-container">
+    <h1 class="hero-name">Phares NADINGA</h1>
+    <h2 class="hero-title">Full Stack Developer • Cybersecurity Analyst</h2>
+    <p class="hero-tagline">{{ t('home.hero.tagline') }}</p>
+    
+    <div class="hero-actions">
+      <a routerLink="/projects" class="btn-primary">
+        <i class="fas fa-briefcase"></i> {{ t('home.hero.cta.primary') }}
+      </a>
+      <a routerLink="/contact" class="btn-secondary">
+        <i class="fas fa-paper-plane"></i> {{ t('home.hero.cta.secondary') }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects Preview -->
+<section class="featured-section" *ngIf="featuredProjects.length > 0">
+  <div class="container">
+    <h2 class="section-title">{{ t('home.featuredProjects.title') }}</h2>
+    <p class="section-subtitle">{{ t('home.featuredProjects.subtitle') }}</p>
+    
+    <div class="projects-grid">
+      <article *ngFor="let project of featuredProjects" class="project-card">
+        <div class="project-image">
+          <img [src]="project.images[0]" [alt]="project.title + ' screenshot'" loading="lazy">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.shortDescription }}</p>
+          <a [routerLink]="['/projects', project.id]" class="project-link">
+            {{ t('projects.card.viewDetails') }} <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    </div>
+    
+    <div class="view-all">
+      <a routerLink="/projects" class="btn-outline">
+        {{ t('home.featuredProjects.viewAll') }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>{{ t('footer.copyright') }}</p>

@@ -12,12 +12,8 @@ body {
   overflow-x: hidden;
 }
 
-.portfolio-container {
-  width: 100%;
-  overflow-x: hidden;
-  background: var(--paper);
-}
-
-section {
-  scroll-margin-top: 20px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }

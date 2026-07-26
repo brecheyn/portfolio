@@ -15,6 +15,18 @@ export interface Project {
   challenges?: string[];
   date: Date;
   featured: boolean;
+  // New fields for detailed project page
+  problem?: string;
+  approach?: string;
+  techStackJustification?: string;
+  results?: string;
+}
+
+export interface Technology {
+  name: string;
+  icon?: string;
+  color?: string;
+  justification?: string;
 }
 
 export enum ProjectCategory {
@@ -23,12 +35,6 @@ export enum ProjectCategory {
   FULLSTACK = 'Full Stack',
   BACKEND = 'Backend',
   OTHER = 'Autre'
-}
-
-export interface Technology {
-  name: string;
-  icon?: string; // URL ou classe d'icône
-  color?: string;
 }
 
 export interface Experience {

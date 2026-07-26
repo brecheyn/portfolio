@@ -1,0 +1,220 @@
+<!-- src/app/pages/contact/contact.component.html -->
+
+<!-- Header with Navigation -->
+<header class="site-header">
+  <div class="header-container">
+    <a routerLink="/" class="logo">Phares NADINGA</a>
+    
+    <nav class="main-nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active">{{ t('nav.home') }}</a>
+      <a routerLink="/about" routerLinkActive="active">{{ t('nav.about') }}</a>
+      <a routerLink="/projects" routerLinkActive="active">{{ t('nav.projects') }}</a>
+      <a routerLink="/experience" routerLinkActive="active">{{ t('nav.experience') }}</a>
+      <a routerLink="/contact" routerLinkActive="active">{{ t('nav.contact') }}</a>
+    </nav>
+    
+    <div class="header-controls">
+      <button 
+        class="theme-toggle" 
+        (click)="toggleTheme()"
+        [attr.aria-label]="getCurrentTheme() === 'dark' ? t('theme.light') : t('theme.dark')">
+        <i class="fas" [class.fa-moon]="getCurrentTheme() === 'dark'" [class.fa-sun]="getCurrentTheme() === 'light'"></i>
+      </button>
+      
+      <div class="language-switcher">
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'fr'"
+          (click)="translationService.setLanguage('fr')"
+          aria-label="Français">FR</button>
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'en'"
+          (click)="translationService.setLanguage('en')"
+          aria-label="English">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="contact-section" *ngIf="personalInfo">
+  <div class="container">
+    <h1 class="page-title">{{ t('contact.title') }}</h1>
+    <p class="page-subtitle">{{ t('contact.subtitle') }}</p>
+
+    <div class="contact-content">
+      <!-- Contact Info -->
+      <aside class="contact-info" aria-label="Contact information">
+        <div class="contact-panel">
+          <span class="panel-label">{{ t('contact.availability') }}</span>
+          <h2>{{ t('contact.highlights.quickResponse') }}</h2>
+          <p>
+            {{ t('contact.highlights.solutions') }}
+          </p>
+
+          <div class="contact-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-bolt"></i>
+              <span>{{ t('contact.highlights.quickResponse') }}</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-layer-group"></i>
+              <span>{{ t('contact.highlights.solutions') }}</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>{{ t('contact.highlights.reliable') }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-contact">
+          <a class="contact-line" [href]="'mailto:' + personalInfo.email">
+            <i class="fas fa-envelope"></i>
+            <span>{{ personalInfo.email }}</span>
+          </a>
+          <a class="contact-line" *ngIf="personalInfo.phone" [href]="'tel:' + personalInfo.phone">
+            <i class="fas fa-phone"></i>
+            <span>{{ personalInfo.phone }}</span>
+          </a>
+          <div class="contact-line">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{ personalInfo.location }}</span>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <h3>{{ t('contact.socials') }}</h3>
+          <div class="social-icons">
+            <a
+              *ngFor="let social of personalInfo.socials"
+              [href]="social.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon"
+              [title]="social.platform">
+              <i [class]="social.icon"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div class="form-heading">
+            <span>{{ t('contact.form.heading') }}</span>
+            <h3>{{ t('contact.form.subheading') }}</h3>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">{{ t('contact.form.name') }}</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="formData.name"
+                placeholder="Votre nom"
+                autocomplete="name"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">{{ t('contact.form.email') }}</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="formData.email"
+                placeholder="vous@entreprise.com"
+                autocomplete="email"
+                required>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="projectType">{{ t('contact.form.projectType') }}</label>
+              <select id="projectType" name="projectType" [(ngModel)]="formData.projectType" required>
+                <option value="" disabled>Choisir une option</option>
+                <option value="Application web">{{ t('contact.form.projectTypes.web') }}</option>
+                <option value="Application mobile">{{ t('contact.form.projectTypes.mobile') }}</option>
+                <option value="API / Backend">{{ t('contact.form.projectTypes.backend') }}</option>
+                <option value="Refonte ou optimisation">{{ t('contact.form.projectTypes.refactor') }}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="timeline">{{ t('contact.form.timeline') }}</label>
+              <select id="timeline" name="timeline" [(ngModel)]="formData.timeline" required>
+                <option value="" disabled>Choisir un délai</option>
+                <option value="Urgent">{{ t('contact.form.timelines.urgent') }}</option>
+                <option value="2 à 4 semaines">{{ t('contact.form.timelines.short') }}</option>
+                <option value="1 à 3 mois">{{ t('contact.form.timelines.medium') }}</option>
+                <option value="À définir ensemble">{{ t('contact.form.timelines.flexible') }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">{{ t('contact.form.subject') }}</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              [(ngModel)]="formData.subject"
+              placeholder="Ex: créer une plateforme de vente"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">{{ t('contact.form.message') }}</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="formData.message"
+              rows="6"
+              placeholder="Décrivez le besoin, les utilisateurs, les fonctionnalités clés et les contraintes importantes."
+              required></textarea>
+          </div>
+
+          <div class="form-footer">
+            <p>
+              {{ t('contact.form.note') }}
+            </p>
+            <button
+              type="submit"
+              class="btn-submit"
+              [disabled]="!isFormValid() || isSubmitting"
+              [class.loading]="isSubmitting">
+              <span *ngIf="!isSubmitting && !submitSuccess">
+                <i class="fas fa-paper-plane"></i> {{ t('contact.form.submit') }}
+              </span>
+              <span *ngIf="isSubmitting">
+                <i class="fas fa-spinner fa-spin"></i> {{ t('contact.form.submitting') }}
+              </span>
+              <span *ngIf="submitSuccess">
+                <i class="fas fa-check-circle"></i> {{ t('contact.form.success') }}
+              </span>
+            </button>
+          </div>
+
+          <div class="success-message" *ngIf="submitSuccess">
+            <i class="fas fa-check-circle"></i>
+            {{ t('contact.form.success') }}
+          </div>
+
+          <div class="error-message" *ngIf="submitError">
+            <i class="fas fa-exclamation-circle"></i>
+            Merci de compléter les champs obligatoires avec une adresse email valide.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>{{ t('footer.copyright') }}</p>
+</footer>

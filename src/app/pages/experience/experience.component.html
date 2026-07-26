@@ -1,0 +1,97 @@
+<!-- src/app/pages/experience/experience.component.html -->
+
+<!-- Header with Navigation -->
+<header class="site-header">
+  <div class="header-container">
+    <a routerLink="/" class="logo">Phares NADINGA</a>
+    
+    <nav class="main-nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active">{{ t('nav.home') }}</a>
+      <a routerLink="/about" routerLinkActive="active">{{ t('nav.about') }}</a>
+      <a routerLink="/projects" routerLinkActive="active">{{ t('nav.projects') }}</a>
+      <a routerLink="/experience" routerLinkActive="active">{{ t('nav.experience') }}</a>
+      <a routerLink="/contact" routerLinkActive="active">{{ t('nav.contact') }}</a>
+    </nav>
+    
+    <div class="header-controls">
+      <button 
+        class="theme-toggle" 
+        (click)="toggleTheme()"
+        [attr.aria-label]="getCurrentTheme() === 'dark' ? t('theme.light') : t('theme.dark')">
+        <i class="fas" [class.fa-moon]="getCurrentTheme() === 'dark'" [class.fa-sun]="getCurrentTheme() === 'light'"></i>
+      </button>
+      
+      <div class="language-switcher">
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'fr'"
+          (click)="translationService.setLanguage('fr')"
+          aria-label="Français">FR</button>
+        <button 
+          class="lang-btn" 
+          [class.active]="translationService.getCurrentLanguage() === 'en'"
+          (click)="translationService.setLanguage('en')"
+          aria-label="English">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="experience-section">
+  <div class="container">
+    <h1 class="page-title">{{ t('experience.title') }}</h1>
+    <p class="page-subtitle">{{ t('experience.subtitle') }}</p>
+
+    <div class="experience-timeline">
+      <article *ngFor="let exp of experiences" class="experience-card">
+        <div class="card-header">
+          <span class="company-badge" *ngIf="exp.current">
+            <i class="fas fa-circle pulse"></i> {{ t('experience.current') }}
+          </span>
+
+          <h2 class="position">{{ exp.position }}</h2>
+
+          <h3 class="company">
+            <i class="fas fa-building"></i> {{ exp.company }}
+          </h3>
+        </div>
+
+        <div class="card-meta">
+          <span class="date">
+            <i class="fas fa-calendar-alt"></i>
+            {{ formatDate(exp.startDate) }} -
+            {{ exp.current ? 'Présent' : formatDate(exp.endDate!) }}
+          </span>
+
+          <span class="duration">
+            <i class="fas fa-clock"></i>
+            {{ getDuration(exp.startDate, exp.endDate) }}
+          </span>
+        </div>
+
+        <p class="description">
+          {{ exp.description }}
+        </p>
+
+        <div class="achievements" *ngIf="exp.achievements && exp.achievements.length > 0">
+          <h4>{{ t('experience.achievements') }}</h4>
+          <ul>
+            <li *ngFor="let achievement of exp.achievements">
+              <i class="fas fa-check"></i> {{ achievement }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="technologies">
+          <span *ngFor="let tech of exp.technologies" class="tech-tag">
+            {{ tech }}
+          </span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>{{ t('footer.copyright') }}</p>
+</footer>

@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Disponible pour nouveaux projets",
+    "cta": {
+      "primary": "Voir les projets",
+      "secondary": "Télécharger le CV"
+    }
+  },
+  "home": {
+    "hero": {
+      "tagline": "Développeur Full Stack & Analyste Cybersécurité construisant des systèmes résilients pour un impact réel.",
+      "cta": {
+        "primary": "Voir les projets",
+        "secondary": "Contact"
+      }
+    },
+    "featuredProjects": {
+      "title": "Projets phares",
+      "subtitle": "Sélection de travaux avec résultats mesurables",
+      "viewAll": "Voir tous les projets"
+    }
+  },
+  "about": {
+    "title": "À propos",
+    "subtitle": "Ingénieur full-stack centré sur les solutions pratiques",
+    "profile": {
+      "heading": "Profil",
+      "bio": "Développeur full-stack et analyste cybersécurité avec plus de 3 ans d'expérience dans la création d'applications web et mobiles. Spécialisé dans les architectures offline-first et la modélisation prédictive pour les systèmes de santé publique. Je dirige actuellement le développement technique chez InViis sur des projets déployés au Burkina Faso.",
+      "location": "Localisation",
+      "email": "Email"
+    },
+    "stats": {
+      "projects": "Projets",
+      "collaborations": "Collaborations",
+      "codeHours": "Heures de code"
+    },
+    "skills": {
+      "label": "Compétences techniques",
+      "title": "Stack technique",
+      "count": "technologies maîtrisées"
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Tous les projets avec résultats mesurables",
+    "filters": {
+      "all": "Tous",
+      "web": "Web",
+      "mobile": "Mobile",
+      "fullstack": "Full Stack",
+      "backend": "Backend",
+      "other": "Autre"
+    },
+    "card": {
+      "viewDetails": "Voir les détails"
+    },
+    "links": {
+      "code": "Code",
+      "demo": "Démo en ligne"
+    }
+  },
+  "projectDetail": {
+    "problem": "Problème",
+    "approach": "Approche",
+    "techStack": "Stack technique",
+    "keyFeatures": "Fonctionnalités clés",
+    "challenges": "Défis & Solutions",
+    "results": "Résultats & Impact",
+    "screenshots": "Captures d'écran",
+    "links": {
+      "github": "Voir sur GitHub",
+      "demo": "Démo en ligne"
+    }
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Parcours professionnel et réalisations",
+    "current": "En cours",
+    "duration": "Durée",
+    "achievements": "Réalisations clés"
+  },
+  "home": {
+    "title": "Accueil",
+    "subtitle": "Développeur Full Stack & Analyste Cybersécurité"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Discutons de votre projet",
+    "availability": "Prêt à transformer une idée en produit concret.",
+    "highlights": {
+      "quickResponse": "Réponse rapide",
+      "solutions": "Solutions web et mobiles",
+      "reliable": "Code fiable et évolutif"
+    },
+    "form": {
+      "heading": "Brief projet",
+      "subheading": "Expliquez votre besoin en 2 minutes",
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "projectType": "Type de projet",
+      "projectTypes": {
+        "web": "Application web",
+        "mobile": "Application mobile",
+        "backend": "API / Backend",
+        "refactor": "Refonte ou optimisation"
+      },
+      "timeline": "Délai souhaité",
+      "timelines": {
+        "urgent": "Urgent",
+        "short": "2 à 4 semaines",
+        "medium": "1 à 3 mois",
+        "flexible": "À définir ensemble"
+      },
+      "budget": "Budget indicatif",
+      "budgets": {
+        "small": "Petit budget",
+        "medium": "Budget intermédiaire",
+        "structured": "Projet structuré"
+      },
+      "subject": "Objectif principal",
+      "message": "Contexte du projet",
+      "submit": "Préparer ma demande",
+      "submitting": "Préparation...",
+      "success": "Email prêt à envoyer",
+      "note": "Le bouton ouvrira votre application email avec un message déjà structuré."
+    },
+    "socials": "Réseaux professionnels"
+  },
+  "footer": {
+    "copyright": "© 2024 Phares NADINGA. Tous droits réservés."
+  },
+  "theme": {
+    "dark": "Mode sombre",
+    "light": "Mode clair"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  }
+}

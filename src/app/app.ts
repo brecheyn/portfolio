@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
-import { HeroComponent } from './components/hero/hero.component';
-import { AboutComponent } from './components/about/about.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { ExperienceComponent } from './components/experience/experience.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { Component, OnInit, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { TranslationService } from './services/translation.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    HeroComponent,
-    AboutComponent,
-    ProjectsComponent,
-    ExperienceComponent,
-    ContactComponent
-  ],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  title = 'Portfolio - Phares NADINGA';
+export class App implements OnInit {
+  private translationService = inject(TranslationService);
+  private themeService = inject(ThemeService);
+
+  ngOnInit(): void {
+    // Load initial translations
+    this.translationService.loadTranslations(this.translationService.getCurrentLanguage()).subscribe();
+  }
 }
