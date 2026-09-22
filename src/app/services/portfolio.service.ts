@@ -233,11 +233,24 @@ export class PortfolioService {
 
   private experiences: Experience[] = [
     {
+      id: 'Infineon & BIT-pro',
+      company: 'Infineon & BIT-Excellence programme ',
+      position: 'Développeur Full Stack',
+      startDate: new Date('2026-07-17'),
+      current: true,
+      description: 'DEVELOPPEMENT DE SOLUTIONS CRITIQUES, PILOTAGE TECHNIQUE DU PROJET Sustainable_farm',
+      achievements: [
+        'En cours'
+      ],
+      technologies: ['Springboot', 'React', 'Posgrsql', 'Docker']
+    },
+    {
       id: 'inviis-pro',
       company: 'InViis',
       position: 'Développeur Full Stack',
       startDate: new Date('2026-04-01'),
-      current: true,
+      endDate: new Date('2026-07-10'),
+      current: false,
       description: 'Développement de solutions critiques, pilotage technique du projet PaluGuard et BTP-Pilot.',
       achievements: [
         'Conception de l\'architecture Offline-First résiliente pour BTP-Pilot',
