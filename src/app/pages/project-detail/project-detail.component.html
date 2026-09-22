@@ -59,6 +59,7 @@
           [src]="image" 
           [alt]="project.title + ' screenshot'"
           loading="lazy"
+          (error)="useImageFallback($event)"
           class="gallery-image">
       </div>
     </div>

@@ -47,6 +47,7 @@
       <button 
         class="filter-btn"
         [class.active]="selectedCategory === 'ALL'"
+        [attr.aria-pressed]="selectedCategory === 'ALL'"
         (click)="filterByCategory('ALL')">
         {{ t('projects.filters.all') }}
       </button>
@@ -54,8 +55,9 @@
         *ngFor="let category of categories"
         class="filter-btn"
         [class.active]="selectedCategory === category"
+        [attr.aria-pressed]="selectedCategory === category"
         (click)="filterByCategory(category)">
-        {{ t('projects.filters.' + category.toLowerCase().replace(' ', '')) }}
+        {{ getCategoryLabel(category) }}
       </button>
     </div>
 
@@ -63,7 +65,11 @@
     <div class="projects-grid">
       <article *ngFor="let project of filteredProjects" class="project-card">
         <div class="project-image">
-          <img [src]="project.images[0]" [alt]="project.title + ' screenshot'" loading="lazy">
+          <img
+            [src]="getProjectImage(project)"
+            [alt]="project.title + ' screenshot'"
+            loading="lazy"
+            (error)="useImageFallback($event)">
         </div>
         
         <div class="project-content">
