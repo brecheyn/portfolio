@@ -235,7 +235,7 @@ export class PortfolioService {
     {
       id: 'Infineon & BIT-pro',
       company: 'Infineon & BIT-Excellence programme ',
-      position: 'Développeur Full Stack',
+      position: 'Stagiaire (Développeur Full Stack)',
       startDate: new Date('2026-07-17'),
       current: true,
       description: 'DEVELOPPEMENT DE SOLUTIONS CRITIQUES, PILOTAGE TECHNIQUE DU PROJET Sustainable_farm',
@@ -247,7 +247,7 @@ export class PortfolioService {
     {
       id: 'inviis-pro',
       company: 'InViis',
-      position: 'Développeur Full Stack',
+      position: ' Stagiaire (Développeur Full Stack)',
       startDate: new Date('2026-04-01'),
       endDate: new Date('2026-07-10'),
       current: false,
