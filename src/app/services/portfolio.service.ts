@@ -142,10 +142,10 @@ export class PortfolioService {
       fullDescription: 'Modèle de deep learning prédisant la popularité des chansons Spotify basé sur leurs caractéristiques audio.',
       category: ProjectCategory.BACKEND,
       technologies: [
-        { name: 'Python', color: '#3776AB' },
-        { name: 'TensorFlow', color: '#FF6F00' },
-        { name: 'Scikit-learn', color: '#F7931E' },
-        { name: 'Pandas', color: '#150458' }
+        { name: 'Angular', color: '#3776AB' },
+        { name: 'Laravel', color: '#FF6F00' },
+        { name: 'Mysql', color: '#F7931E' },
+        { name: 'Render,Aiven-io', color: '#150458' }
       ],
       images: [
         'assets/images/projects/spotify-predictor/results.png',
