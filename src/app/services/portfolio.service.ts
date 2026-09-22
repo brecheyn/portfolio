@@ -174,10 +174,10 @@ export class PortfolioService {
       fullDescription: 'Application mobile de diagnostic de solidité financière pour les très petites entreprises (TPE) et micro-entreprises (MPME),centré sur les dimensions Finance et Commercial, avec un parcours public (introduction → questionnaire → résultat) et un back-office permettant d\'ajouter ou supprimer des questions ou option dynamiquement.',
       category: ProjectCategory.FULLSTACK,
       technologies: [
-        { name: 'Python', color: '#3776AB' },
-        { name: 'TensorFlow', color: '#FF6F00' },
-        { name: 'Scikit-learn', color: '#F7931E' },
-        { name: 'Pandas', color: '#150458' }
+        { name: 'Angular', color: '#3776AB' },
+        { name: 'Laravel', color: '#FF6F00' },
+        { name: 'mysql', color: '#F7931E' },
+        { name: 'Render, Aiven.io, Vercel', color: '#150458' }
       ],
       images: [
         'assets/images/projects/Alodo_metric/home.png',
