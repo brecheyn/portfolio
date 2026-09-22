@@ -22,6 +22,7 @@ export class ProjectDetailComponent implements OnInit {
   private portfolioService = inject(PortfolioService);
   private seoService = inject(SeoService);
   private route = inject(ActivatedRoute);
+  readonly imageFallback = 'assets/images/project-placeholder.svg';
   
   project: Project | null = null;
 
@@ -47,5 +48,10 @@ export class ProjectDetailComponent implements OnInit {
 
   toggleTheme() {
     this.themeService.toggleTheme();
+  }
+
+  useImageFallback(event: Event): void {
+    const image = event.target as HTMLImageElement;
+    image.src = this.imageFallback;
   }
 }

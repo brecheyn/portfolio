@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   private themeService = inject(ThemeService);
   private portfolioService = inject(PortfolioService);
   private seoService = inject(SeoService);
+  readonly imageFallback = 'assets/images/project-placeholder.svg';
   
   featuredProjects: Project[] = [];
   
@@ -41,5 +42,14 @@ export class HomeComponent implements OnInit {
   
   toggleTheme() {
     this.themeService.toggleTheme();
+  }
+
+  getProjectImage(project: Project): string {
+    return project.images?.[0] || this.imageFallback;
+  }
+
+  useImageFallback(event: Event): void {
+    const image = event.target as HTMLImageElement;
+    image.src = this.imageFallback;
   }
 }

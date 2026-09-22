@@ -39,7 +39,17 @@ export class PortfolioService {
         { name: 'Mapbox', color: '#4264FB', justification: 'Cartographie offline-first intégrée' },
         { name: 'SQLite', color: '#003B57', justification: 'Base embarquée pour fonctionnement sans serveur' }
       ],
-      images: ['assets/images/paluguard-main.png'],
+      images: [
+        'assets/images/projects/paluguard/dashboard.png',
+        'assets/images/projects/paluguard/map.png',
+        'assets/images/projects/paluguard/alerts.png',
+        'assets/images/projects/paluguard/reports.png',
+        'assets/images/projects/paluguard/profile.png',
+        'assets/images/projects/paluguard/welcome.png',
+        'assets/images/projects/paluguard/register.png',
+        'assets/images/projects/paluguard/login.png',
+        'assets/images/projects/paluguard/admin.png'
+      ],
       githubUrl: 'https://github.com/brecheyn/paluguard',
       features: [
         'Prédiction du risque à 2 semaines (Modèles GAM)',
@@ -72,7 +82,7 @@ export class PortfolioService {
         { name: 'SQLite', color: '#003B57' },
         { name: 'Material 3', color: '#6750A4' }
       ],
-      images: ['assets/images/btp-pilot-main.png'],
+      images: ['assets/images/projects/btp-pilot-main.png'],
       githubUrl: 'https://github.com/brecheyn/btp-pilot',
       features: [
         'Architecture Offline-First avec SyncQueue persistant',
@@ -102,14 +112,26 @@ export class PortfolioService {
         { name: 'Firebase', color: '#FFCA28' },
         { name: 'Capacitor', color: '#119EFF' }
       ],
-      images: ['assets/images/zawani-main.png'],
-      githubUrl: 'https://github.com/brecheyn/zawani',
+      images: [
+        'assets/images/projects/zawani/home.jpeg',
+        'assets/images/projects/zawani/commerces.jpeg',
+        'assets/images/projects/zawani/detailsSurUnCommerce.jpeg',
+        'assets/images/projects/zawani/favoris.jpeg',
+        'assets/images/projects/zawani/profile.jpeg',
+        'assets/images/projects/zawani/login.jpeg',
+        'assets/images/projects/zawani/register.jpeg',
+        'assets/images/projects/zawani/Splash.jpeg'
+      ],
+      githubUrl: 'https://github.com/PANK4SS/zawani',
       features: [
         'Recherche géolocalisée',
         'Notation intelligente des avis via IA',
         'Mode hors-ligne partiel',
         'Tableau de bord de statistiques'
       ],
+      problem: 'Les clients ont besoin de trouver rapidement des commerces locaux fiables, proches et bien documentes, tandis que les commercants manquent souvent de visibilite numerique.',
+      approach: 'Creation d\'une application mobile full stack avec geolocalisation, authentification Firebase, fiches commerces detaillees, favoris synchronises et analyse semantique des commentaires.',
+      results: 'Le projet propose un annuaire mobile complet avec recherche par categorie, tri par distance, partage WhatsApp, dashboard de statistiques et mode hors-ligne partiel.',
       date: new Date('2024-12-01'),
       featured: true
     },
@@ -125,15 +147,57 @@ export class PortfolioService {
         { name: 'Scikit-learn', color: '#F7931E' },
         { name: 'Pandas', color: '#150458' }
       ],
-      images: ['assets/images/spotify-predictor.png'],
-      githubUrl: 'https://github.com/brecheyn/spotify-popularity-predictor',
+      images: [
+        'assets/images/projects/spotify-predictor/results.png',
+        'assets/images/projects/spotify-predictor/model-architecture.png',
+        'assets/images/projects/spotify-predictor/dataset.png',
+        'assets/images/projects/spotify-predictor/prediction-code.png',
+        'assets/images/projects/spotify-predictor/structure.png'
+      ],
+      githubUrl: 'https://github.com/brecheyn/spotify_predictors',
       features: [
         'Réseau de neurones profond (Dense layers)',
         'Analyse de 15 caractéristiques audio',
         'Précision de 85.67%',
         'Notebooks d\'exploration de données'
       ],
+      problem: 'Identifier la popularite potentielle d\'une chanson Spotify a partir de ses caracteristiques audio comme la danceability, l\'energy, le tempo, la loudness ou la valence.',
+      approach: 'Construction d\'un reseau de neurones profond avec TensorFlow, preprocessing Scikit-learn, notebooks d\'exploration et pipeline de prediction reutilisable.',
+      results: 'Le modele atteint 85.67% d\'accuracy, 82.34% de precision, 81.23% de recall et 92.34% d\'AUC sur le jeu de test.',
       date: new Date('2024-08-10'),
+      featured: true
+    },
+    {
+      id: 'Alodo_metric',
+      title: 'Alodo Metric',
+      shortDescription: 'Diagnostic de solidité financière pour MPME',
+      fullDescription: 'Application mobile de diagnostic de solidité financière pour les très petites entreprises (TPE) et micro-entreprises (MPME),centré sur les dimensions Finance et Commercial, avec un parcours public (introduction → questionnaire → résultat) et un back-office permettant d\'ajouter ou supprimer des questions ou option dynamiquement.',
+      category: ProjectCategory.FULLSTACK,
+      technologies: [
+        { name: 'Python', color: '#3776AB' },
+        { name: 'TensorFlow', color: '#FF6F00' },
+        { name: 'Scikit-learn', color: '#F7931E' },
+        { name: 'Pandas', color: '#150458' }
+      ],
+      images: [
+        'assets/images/projects/Alodo_metric/home.png',
+        'assets/images/projects/Alodo_metric/home1.png',
+        'assets/images/projects/Alodo_metric/test.png',
+        'assets/images/projects/Alodo_metric/result.png',
+        'assets/images/projects/Alodo_metric/result1.png',
+        'assets/images/projects/Alodo_metric/result2.png'
+      ],
+      githubUrl:'https://github.com/brecheyn/ALODO-MPME-CHALLENGE-NADINGA-Y-PHARES.git',
+      liveUrl: 'https://alodo-metic.vercel.app',
+      features: [
+        'Questionnaire dynamique avec scoring automatique',
+        'Parcours utilisateur public et back-office administrateur',
+        'Visualisation des résultats avec recommandations personnalisées',
+        'Gestion des questions et options dynamiques via le back-office'
+      ],
+      problem: 'Test de competivite de Alodo_Tech au Benin pour les MPME, necessitant un outil de diagnostic de solidite financiere et commerciale pour les TPE et micro-entreprises.',
+      approach: 'Développement d\'un outils web avec un questionnaire dynamique, scoring automatique, visualisation des résultats et recommandations personnalisées, ainsi qu\'un back-office pour la gestion des questions et options.',
+      date: new Date('2026-08-10'),
       featured: true
     },
     {
@@ -148,8 +212,14 @@ export class PortfolioService {
         { name: 'Node.js', color: '#339933' },
         { name: 'Vite', color: '#646CFF' }
       ],
-      images: ['assets/images/cl-creator.png'],
+      images: [
+        'assets/images/projects/cl-creator/landing.png',
+        'assets/images/projects/cl-creator/cv-input.png',
+        'assets/images/projects/cl-creator/offer-input.png',
+        'assets/images/projects/cl-creator/result.png'
+      ],
       githubUrl: 'https://github.com/brecheyn/cl-creator',
+      liveUrl: 'https://clcreator.vercel.app',
       features: [
         'Génération instantanée via Groq',
         'Upload de CV au format PDF',
